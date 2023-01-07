@@ -10,13 +10,20 @@ public class Outlineify : MonoBehaviour
         if (transform.Find("outline")) {
             return;
         }
+
+        // The mesh combination assumes the object is at 0,0,0 and scale 1,1,1
         Vector3 storedPosition = transform.position;
+        Vector3 storedScale = transform.localScale;
         transform.position = Vector3.zero;
+        transform.localScale = Vector3.one;
+
+        // Create a sub object that will house and render the outline.
         GameObject outline = new GameObject("outline");
         outline.transform.SetParent(transform);
         outline.AddComponent<MeshRenderer>().material = outlineMaterial;
-        outline.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+        outline.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
 
+        // Loop through child meshes to find ones that need outlines.
         var combinedMeshFilter = outline.AddComponent<MeshFilter>();
         List<CombineInstance> combineInstances = new List<CombineInstance>();
         var combinedMesh = new Mesh();
@@ -29,6 +36,8 @@ public class Outlineify : MonoBehaviour
             }
         }
         combinedMesh.CombineMeshes(combineInstances.ToArray());
+
+        // The beet model has two flat planes between it's top half and bottom half. We exclude these by checking for triangles pointed straight up or down.
         int[] flippedTriangles = new int[combinedMesh.triangles.Length];
         int skippedCount = 0;
         for (int i = 0; i < flippedTriangles.Length; i += 3) {
@@ -45,6 +54,9 @@ public class Outlineify : MonoBehaviour
         }
         combinedMesh.SetTriangles(flippedTriangles, 0);
         combinedMeshFilter.sharedMesh = combinedMesh;
+
+        // Restore saved pos/scale.
         transform.position = storedPosition;
+        transform.localScale = storedScale;
     }
 }

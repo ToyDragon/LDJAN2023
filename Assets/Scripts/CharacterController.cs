@@ -5,7 +5,6 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public Camera cam;
-    public GameObject reference;
 
     float accelerationSpeed = 10f;
     float maxSpeed = 250f;
@@ -37,7 +36,6 @@ public class CharacterController : MonoBehaviour
         intersectionPoint.y = transform.position.y;
 
         Debug.Log(intersectionPoint);
-        reference.transform.position = intersectionPoint;
 
         transform.LookAt(intersectionPoint);   
     }

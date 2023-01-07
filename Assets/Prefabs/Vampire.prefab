@@ -4714,6 +4714,7 @@ GameObject:
   - component: {fileID: 8994244561560460874}
   - component: {fileID: 1595523050}
   - component: {fileID: 1574225961}
+  - component: {fileID: 1574225962}
   m_Layer: 0
   m_Name: Vampire
   m_TagString: Untagged
@@ -4794,6 +4795,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.04944968, z: 0}
+--- !u!114 &1574225962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994244561560460872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8282792a272f7b848a04b71226b17b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseWidth: 0.1
+  pissMat: {fileID: 2100000, guid: a9efd704d70bf4147bd3b753916674ea, type: 2}
 --- !u!1 &8994244561566360345
 GameObject:
   m_ObjectHideFlags: 0

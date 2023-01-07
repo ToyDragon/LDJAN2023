@@ -7,18 +7,16 @@ public class CharacterController : MonoBehaviour
     public float maxVelocity = 5f;
     public float acceleration = 0.5f;
     public float deccelerate = 1f;
+    public float moveSpeed = 10f;
     public float xVel, zVel;
-
-    // Start is called before the first frame update
+    public Vector3 offsetToCamera;
+    private UnityEngine.CharacterController unityCharController;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        unityCharController = GetComponent<UnityEngine.CharacterController>();
+        if (offsetToCamera == Vector3.zero) {
+            offsetToCamera = Camera.main.transform.position - transform.position;
+        }
     }
 
     void FixedUpdate(){
@@ -76,10 +74,11 @@ public class CharacterController : MonoBehaviour
             velocity = velocity.normalized * maxVelocity;
         }
 
-        transform.Translate(new Vector3(velocity.x * 0.1f, 0f, velocity.y * 0.1f), Space.World);
+        unityCharController.SimpleMove(new Vector3(velocity.x * moveSpeed, 0f, velocity.y * moveSpeed));
+        // transform.Translate(, Space.World);
     }
 
     void SyncCameraLocation(){
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y+20f, transform.position.z-20f);
+        Camera.main.transform.position = transform.position + offsetToCamera; // new Vector3(transform.position.x, transform.position.y+20f, transform.position.z-20f);
     }
 }

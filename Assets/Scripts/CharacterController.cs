@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    public Camera cam;
-
     public float maxVelocity = 5f;
     public float acceleration = 0.5f;
     public float deccelerate = 1f;
@@ -30,14 +28,10 @@ public class CharacterController : MonoBehaviour
     }
 
     void LookAtMouse(){
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         var rayStepsToGround = ray.origin.y / Mathf.Abs(ray.direction.y);
-        Debug.Log(rayStepsToGround);
         var intersectionPoint = ray.origin + rayStepsToGround * ray.direction;
         intersectionPoint.y = transform.position.y;
-
-        Debug.Log(intersectionPoint);
-
         transform.LookAt(intersectionPoint);   
     }
 
@@ -86,6 +80,6 @@ public class CharacterController : MonoBehaviour
     }
 
     void SyncCameraLocation(){
-        cam.transform.position = new Vector3(transform.position.x, transform.position.y+20f, transform.position.z-20f);
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y+20f, transform.position.z-20f);
     }
 }

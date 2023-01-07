@@ -4801,6 +4801,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  maxVelocity: 5
+  acceleration: 0.5
+  deccelerate: 1
+  xVel: 0
+  zVel: 0
 --- !u!1 &8994244561566360345
 GameObject:
   m_ObjectHideFlags: 0

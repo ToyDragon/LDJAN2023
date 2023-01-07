@@ -4777,6 +4777,8 @@ MonoBehaviour:
   xVel: 0
   zVel: 0
   offsetToCamera: {x: 0, y: 0, z: 0}
+  projectilePrefab: {fileID: 2034805803721166630, guid: 7465805c5e5b8c74f8c43f1fa53d9d07, type: 3}
+  attackCooldown: 1
 --- !u!143 &1574225961
 CharacterController:
   m_ObjectHideFlags: 0

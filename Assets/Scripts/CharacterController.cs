@@ -11,12 +11,20 @@ public class CharacterController : MonoBehaviour
     public float xVel, zVel;
     public Vector3 offsetToCamera;
     private UnityEngine.CharacterController unityCharController;
+    public GameObject projectilePrefab;
+    public float attackCooldown = 1f;
+    private float timeSinceLastAttack = 0f;
+
     void Start()
     {
         unityCharController = GetComponent<UnityEngine.CharacterController>();
         if (offsetToCamera == Vector3.zero) {
             offsetToCamera = Camera.main.transform.position - transform.position;
         }
+    }
+
+    void Update(){
+        HandleMouseInput();
     }
 
     void FixedUpdate(){
@@ -34,7 +42,6 @@ public class CharacterController : MonoBehaviour
     }
 
     void HandleKeyInput(){
-        Rigidbody rb = GetComponent<Rigidbody>();
 
         if(Input.GetKey(KeyCode.W)){
             zVel += acceleration;
@@ -76,6 +83,24 @@ public class CharacterController : MonoBehaviour
 
         unityCharController.SimpleMove(new Vector3(velocity.x * moveSpeed, 0f, velocity.y * moveSpeed));
         // transform.Translate(, Space.World);
+    }
+
+    void HandleMouseInput(){
+        timeSinceLastAttack += Time.deltaTime;
+        if(Input.GetMouseButton(0) && timeSinceLastAttack >= attackCooldown){
+            Attack();
+        }
+    }
+
+    void Attack(){
+        GameObject projectile = GameObject.Instantiate(projectilePrefab);
+        projectile.transform.position = transform.position;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        var rayStepsToGround = ray.origin.y / Mathf.Abs(ray.direction.y);
+        var intersectionPoint = ray.origin + rayStepsToGround * ray.direction;
+        intersectionPoint.y = transform.position.y;
+        projectile.transform.LookAt(intersectionPoint);
+        timeSinceLastAttack = 0f;
     }
 
     void SyncCameraLocation(){

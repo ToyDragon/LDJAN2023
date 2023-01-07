@@ -305,6 +305,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8666322228565213041}
   - component: {fileID: 1238338138}
+  - component: {fileID: 1830736415}
+  - component: {fileID: 1830736414}
+  - component: {fileID: 1830736413}
   m_Layer: 0
   m_Name: Blood Beet
   m_TagString: Untagged
@@ -345,6 +348,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMaterial: {fileID: 2100000, guid: 75877e9a3ef9ab346a6bdb7ff366c722, type: 2}
+--- !u!54 &1830736415
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8666322228565213042}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1830736414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8666322228565213042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.25, y: 7.5, z: 6.44}
+  m_Center: {x: 0, y: 3.86, z: 0}
+--- !u!114 &1830736413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8666322228565213042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1f8c3c695be0947a03a7ceca10342f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  pickupPrefab: {fileID: 3193246033815733695, guid: 9c57daded14e22247b419bb334bcbb77, type: 3}
 --- !u!1 &8666322228946170648
 GameObject:
   m_ObjectHideFlags: 0

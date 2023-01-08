@@ -10,6 +10,7 @@ public class BloodAmountController : MonoBehaviour
     public float deltaPerSecond;
     void OnEnable() {
         instance = this;
+        amount = 1f;
     }
     void FixedUpdate() {
         amount = Mathf.Clamp01(amount + deltaPerSecond * Time.fixedDeltaTime);

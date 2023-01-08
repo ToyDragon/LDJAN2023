@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    float speed = 10f;
-    float despawnTime = 5.0f;
-    float aliveTime = 0f;
+    public float speed = 10f;
+    public float despawnTime = 5.0f;
+    private float aliveTime = 0f;
     // Start is called before the first frame update
     void Start()
     {

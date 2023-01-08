@@ -7,16 +7,21 @@ public class CharacterController : MonoBehaviour
     public float maxVelocity = 5f;
     public float acceleration = 0.5f;
     public float deccelerate = 1f;
-    public float moveSpeed = 10f;
+    public float slowMoveSpeed = 2f;
+    public float fastMoveSpeed = 5f;
     public float xVel, zVel;
     public Vector3 offsetToCamera;
     private UnityEngine.CharacterController unityCharController;
     public GameObject projectilePrefab;
-    public float attackCooldown = 1f;
+    public float slowAttackCooldown = 1f;
+    public float fastAttackCooldown = .1f;
     private float timeSinceLastAttack = 0f;
     private GameObject legRoot;
     private Vector3 lastVelocityThree;
     private Animator animator;
+    private AudioSource audioSource;
+    public AudioClip attackSound;
+    public BloodAmountController bloodAmountController;
     void Start()
     {
         unityCharController = GetComponent<UnityEngine.CharacterController>();
@@ -25,6 +30,8 @@ public class CharacterController : MonoBehaviour
         }
         animator = GetComponent<Animator>();
         legRoot = transform.Find("Torso").Find("Lower Body").gameObject;
+        audioSource = GetComponent<AudioSource>();
+        bloodAmountController = GetComponent<BloodAmountController>();
     }
 
     void Update(){
@@ -90,13 +97,14 @@ public class CharacterController : MonoBehaviour
             lastVelocityThree = velocityThree;
         }
 
+        float moveSpeed = Mathf.Lerp(slowMoveSpeed, fastMoveSpeed, bloodAmountController.amount);
         unityCharController.SimpleMove(velocityThree * moveSpeed);
-        animator.SetFloat("speed", velocityThree.magnitude);
-        // transform.Translate(, Space.World);
+        animator.SetFloat("speed", velocityThree.magnitude * moveSpeed);
     }
 
     void HandleMouseInput(){
         timeSinceLastAttack += Time.deltaTime;
+        float attackCooldown = Mathf.Lerp(slowAttackCooldown, fastAttackCooldown, bloodAmountController.amount);
         if(Input.GetMouseButton(0) && timeSinceLastAttack >= attackCooldown){
             Attack();
         }
@@ -111,9 +119,11 @@ public class CharacterController : MonoBehaviour
         intersectionPoint.y = transform.position.y;
         projectile.transform.LookAt(intersectionPoint);
         timeSinceLastAttack = 0f;
+
+        audioSource.PlayOneShot(attackSound);
     }
 
     void SyncCameraLocation(){
-        Camera.main.transform.position = transform.position + offsetToCamera; // new Vector3(transform.position.x, transform.position.y+20f, transform.position.z-20f);
+        Camera.main.transform.position = transform.position + offsetToCamera;
     }
 }

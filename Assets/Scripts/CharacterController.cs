@@ -42,11 +42,6 @@ public class CharacterController : MonoBehaviour
     }
 
     void HandleKeyInput(){
-        if(Input.GetKeyDown(KeyCode.Backspace)){
-            GameState.selectingUpgrade = !GameState.selectingUpgrade;
-            Camera.main.GetComponent<UIController>().ShowCards(GameState.selectingUpgrade);
-        }
-
         if(Input.GetKey(KeyCode.W)){
             zVel += acceleration;
             if(zVel < 0f) zVel += deccelerate;

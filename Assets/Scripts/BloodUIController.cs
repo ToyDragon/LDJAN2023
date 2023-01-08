@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BloodUIController : MonoBehaviour
 {
+    public static BloodUIController instance;
     public BloodAmountController bloodController;
     public float decayFactor = .99f;
     public float closeDecayFactor = .95f;
@@ -11,6 +12,12 @@ public class BloodUIController : MonoBehaviour
     public float acceleration = .15f;
     public RectTransform displayTransform;
     private float bloodVelocity = 0f;
+    public Vector3 GetBarTopPosition() {
+        return displayTransform.transform.position + Vector3.up * (displayTransform.transform.position.y - 200f);
+    }
+    void OnEnable() {
+        instance = this;
+    }
     void FixedUpdate() {
         bloodVelocity *= decayFactor;
         float height = ((RectTransform)displayTransform.parent).rect.yMax - ((RectTransform)displayTransform.parent).rect.yMin;

@@ -73,10 +73,10 @@ public class Outlineify : MonoBehaviour
     }
 
     void OnEnable() {
-        outlineObj.SetActive(true);
+        outlineObj?.SetActive(true);
     }
 
     void OnDisable() {
-        outlineObj.SetActive(false);
+        outlineObj?.SetActive(false);
     }
 }

@@ -22,6 +22,7 @@ public class CharacterController : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip attackSound;
     public BloodAmountController bloodAmountController;
+    public Vector3 projectileSpread = new Vector3(0f, 2.5f, 0f);
     void Start()
     {
         unityCharController = GetComponent<UnityEngine.CharacterController>();
@@ -111,13 +112,28 @@ public class CharacterController : MonoBehaviour
     }
 
     void Attack(){
-        GameObject projectile = GameObject.Instantiate(projectilePrefab);
-        projectile.transform.position = transform.position;
+        
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         var rayStepsToGround = ray.origin.y / Mathf.Abs(ray.direction.y);
         var intersectionPoint = ray.origin + rayStepsToGround * ray.direction;
         intersectionPoint.y = transform.position.y;
-        projectile.transform.LookAt(intersectionPoint);
+        AttackMods mods = GetComponent<AttackMods>();
+        
+        for(int i = 0; i < mods.numberOfProjectiles; i++){
+            int offsetAmount = i - (mods.numberOfProjectiles/2); 
+            GameObject projectile = GameObject.Instantiate(projectilePrefab);
+
+            ProjectileController controller = projectile.GetComponent<ProjectileController>();
+            controller.SetParameters(mods);
+
+            projectile.transform.position = transform.position;
+            Vector3 toLookAt = intersectionPoint;
+            
+            projectile.transform.LookAt(toLookAt);
+            projectile.transform.Rotate(offsetAmount * projectileSpread);
+        }
+        
+        
         timeSinceLastAttack = 0f;
 
         audioSource.PlayOneShot(attackSound);

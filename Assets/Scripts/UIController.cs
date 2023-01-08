@@ -12,19 +12,22 @@ public class UIController : MonoBehaviour
     void Start()
     {
         vampire = GameObject.Find("Vampire");
+        XPLevelController.instance.onLevelUp += OnLevelUp;
         ShowCards(false);
+    }
+
+    void OnLevelUp(){
+        int level = XPLevelController.instance.level;
+        if(level == 5){
+            GameState.selectingUpgrade = true;
+            SetCardModsAndMaterials(1);
+            ShowCards(GameState.selectingUpgrade);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Backspace)){
-            GameState.selectingUpgrade = !GameState.selectingUpgrade;
-            SetCardModsAndMaterials(1);
-            ShowCards(GameState.selectingUpgrade);
-        }
-
-
         if(GameState.selectingUpgrade){
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -58,7 +61,7 @@ public class UIController : MonoBehaviour
         Mod[] mods = ModPool.GetModsForLevel(level);
         for(int i = 0; i < 3; i++){
             GameObject card = transform.GetChild(i).gameObject;
-            Debug.Log(card.gameObject.name);
+            //Debug.Log(card.gameObject.name);
             CardController controller = card.GetComponentInChildren<CardController>();
             controller.mod = mods[i];
             card.transform.GetChild(0).GetComponent<MeshRenderer>().material = cardMaterials[mods[i].materialIndex];
@@ -66,9 +69,10 @@ public class UIController : MonoBehaviour
     }
 
     public void ShowCards(bool value){
-        for(int i = 0; i < 3; i++){
-            GameObject card = transform.GetChild(i).gameObject;
-            card.SetActive(value);
+        var cards = GetComponentsInChildren<CardController>(true);
+        foreach(var card in cards){
+            Debug.Log(card.transform.parent.gameObject.name);
+            card.transform.parent.gameObject.SetActive(value);
         }
     }
 

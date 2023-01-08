@@ -229,7 +229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4a762975c6e03448de3e7cee987c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodController: {fileID: 0}
   decayFactor: 0.95
   closeDecayFactor: 0.95
   maxBloodVel: 1

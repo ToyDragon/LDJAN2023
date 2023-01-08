@@ -4809,13 +4809,16 @@ MonoBehaviour:
   maxVelocity: 5
   acceleration: 0.5
   deccelerate: 1
-  moveSpeed: 10
+  slowMoveSpeed: 2
+  fastMoveSpeed: 5
   xVel: 0
   zVel: 0
   offsetToCamera: {x: 0, y: 0, z: 0}
   projectilePrefab: {fileID: 2034805803721166630, guid: 7465805c5e5b8c74f8c43f1fa53d9d07, type: 3}
-  attackCooldown: 0.1
+  slowAttackCooldown: 0.3
+  fastAttackCooldown: 0.1
   attackSound: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
+  bloodAmountController: {fileID: 0}
 --- !u!143 &1574225961
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4841,7 +4844,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8994244561560460872}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8282792a272f7b848a04b71226b17b43, type: 3}
   m_Name: 
@@ -4892,7 +4895,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.407
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0

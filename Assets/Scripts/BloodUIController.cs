@@ -5,7 +5,6 @@ using UnityEngine;
 public class BloodUIController : MonoBehaviour
 {
     public static BloodUIController instance;
-    public BloodAmountController bloodController;
     public float decayFactor = .99f;
     public float closeDecayFactor = .95f;
     public float maxBloodVel = 1f;
@@ -22,7 +21,7 @@ public class BloodUIController : MonoBehaviour
         bloodVelocity *= decayFactor;
         float height = ((RectTransform)displayTransform.parent).rect.yMax - ((RectTransform)displayTransform.parent).rect.yMin;
         float displayedPercent = (displayTransform.sizeDelta.y / height);
-        float bloodAmount = bloodController.amount;
+        float bloodAmount = BloodAmountController.instance.amount;
         bloodVelocity += (bloodAmount - displayedPercent) * acceleration;
         if (Mathf.Abs(bloodAmount - displayedPercent) < .1) {
             bloodVelocity *= closeDecayFactor;

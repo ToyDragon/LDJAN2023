@@ -14,13 +14,17 @@ public class CharacterController : MonoBehaviour
     public GameObject projectilePrefab;
     public float attackCooldown = 1f;
     private float timeSinceLastAttack = 0f;
-
+    private GameObject legRoot;
+    private Vector3 lastVelocityThree;
+    private Animator animator;
     void Start()
     {
         unityCharController = GetComponent<UnityEngine.CharacterController>();
         if (offsetToCamera == Vector3.zero) {
             offsetToCamera = Camera.main.transform.position - transform.position;
         }
+        animator = GetComponent<Animator>();
+        legRoot = transform.Find("Torso").Find("Lower Body").gameObject;
     }
 
     void Update(){
@@ -38,7 +42,8 @@ public class CharacterController : MonoBehaviour
         var rayStepsToGround = ray.origin.y / Mathf.Abs(ray.direction.y);
         var intersectionPoint = ray.origin + rayStepsToGround * ray.direction;
         intersectionPoint.y = transform.position.y;
-        transform.LookAt(intersectionPoint);   
+        transform.LookAt(intersectionPoint);
+        legRoot.transform.LookAt(legRoot.transform.position + Quaternion.Euler(0, -90, 0) * lastVelocityThree);
     }
 
     void HandleKeyInput(){
@@ -85,7 +90,13 @@ public class CharacterController : MonoBehaviour
             velocity = velocity.normalized * maxVelocity;
         }
 
-        unityCharController.SimpleMove(new Vector3(velocity.x * moveSpeed, 0f, velocity.y * moveSpeed));
+        var velocityThree = new Vector3(velocity.x, 0, velocity.y);
+        if (velocityThree.magnitude > .2f) {
+            lastVelocityThree = velocityThree;
+        }
+
+        unityCharController.SimpleMove(velocityThree * moveSpeed);
+        animator.SetFloat("speed", velocityThree.magnitude);
         // transform.Translate(, Space.World);
     }
 

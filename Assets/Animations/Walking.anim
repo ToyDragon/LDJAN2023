@@ -101,7 +101,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Torso/Right Leg
+    path: Torso/Lower Body/Right Leg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -171,7 +171,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Torso/Right Leg/Shin
+    path: Torso/Lower Body/Right Leg/Shin
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -259,7 +259,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Torso/Left Leg
+    path: Torso/Lower Body/Left Leg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -320,7 +320,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Torso/Left Leg/Shin/Foot
+    path: Torso/Lower Body/Left Leg/Shin/Foot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -390,7 +390,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Torso/Left Leg/Shin
+    path: Torso/Lower Body/Left Leg/Shin
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -451,7 +451,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Torso/Right Leg/Shin/Foot
+    path: Torso/Lower Body/Right Leg/Shin/Foot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -892,7 +892,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Torso/Right Leg
+    path: Torso/Lower Body/Right Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -983,7 +983,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Torso/Right Leg
+    path: Torso/Lower Body/Right Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1074,7 +1074,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Torso/Right Leg
+    path: Torso/Lower Body/Right Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1147,7 +1147,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Torso/Right Leg/Shin
+    path: Torso/Lower Body/Right Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1220,7 +1220,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Torso/Right Leg/Shin
+    path: Torso/Lower Body/Right Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1293,7 +1293,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Torso/Right Leg/Shin
+    path: Torso/Lower Body/Right Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1384,7 +1384,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Torso/Left Leg
+    path: Torso/Lower Body/Left Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1475,7 +1475,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Torso/Left Leg
+    path: Torso/Lower Body/Left Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1566,7 +1566,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Torso/Left Leg
+    path: Torso/Lower Body/Left Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1630,7 +1630,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Torso/Left Leg/Shin/Foot
+    path: Torso/Lower Body/Left Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1694,7 +1694,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Torso/Left Leg/Shin/Foot
+    path: Torso/Lower Body/Left Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1758,7 +1758,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Torso/Left Leg/Shin/Foot
+    path: Torso/Lower Body/Left Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1831,7 +1831,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Torso/Left Leg/Shin
+    path: Torso/Lower Body/Left Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1904,7 +1904,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Torso/Left Leg/Shin
+    path: Torso/Lower Body/Left Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1977,7 +1977,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Torso/Left Leg/Shin
+    path: Torso/Lower Body/Left Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2260,7 +2260,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Torso/Right Leg/Shin/Foot
+    path: Torso/Lower Body/Right Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2324,7 +2324,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Torso/Right Leg/Shin/Foot
+    path: Torso/Lower Body/Right Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2388,7 +2388,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Torso/Right Leg/Shin/Foot
+    path: Torso/Lower Body/Right Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2981,7 +2981,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Torso/Right Leg
+    path: Torso/Lower Body/Right Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2991,7 +2991,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Torso/Right Leg
+    path: Torso/Lower Body/Right Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3001,7 +3001,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Torso/Right Leg
+    path: Torso/Lower Body/Right Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3011,7 +3011,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Torso/Right Leg/Shin
+    path: Torso/Lower Body/Right Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3021,7 +3021,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Torso/Right Leg/Shin
+    path: Torso/Lower Body/Right Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3031,7 +3031,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Torso/Right Leg/Shin
+    path: Torso/Lower Body/Right Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3041,7 +3041,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Torso/Left Leg/Shin
+    path: Torso/Lower Body/Left Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3051,7 +3051,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Torso/Left Leg/Shin
+    path: Torso/Lower Body/Left Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3061,7 +3061,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Torso/Left Leg/Shin
+    path: Torso/Lower Body/Left Leg/Shin
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3071,7 +3071,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Torso/Left Leg
+    path: Torso/Lower Body/Left Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3081,7 +3081,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Torso/Left Leg
+    path: Torso/Lower Body/Left Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3091,7 +3091,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Torso/Left Leg
+    path: Torso/Lower Body/Left Leg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3101,7 +3101,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Torso/Left Leg/Shin/Foot
+    path: Torso/Lower Body/Left Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3111,7 +3111,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Torso/Left Leg/Shin/Foot
+    path: Torso/Lower Body/Left Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3121,7 +3121,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Torso/Left Leg/Shin/Foot
+    path: Torso/Lower Body/Left Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3161,7 +3161,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Torso/Right Leg/Shin/Foot
+    path: Torso/Lower Body/Right Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3171,7 +3171,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Torso/Right Leg/Shin/Foot
+    path: Torso/Lower Body/Right Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3181,7 +3181,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Torso/Right Leg/Shin/Foot
+    path: Torso/Lower Body/Right Leg/Shin/Foot
     classID: 4
     script: {fileID: 0}
   - curve:

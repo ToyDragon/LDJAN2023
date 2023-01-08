@@ -20,12 +20,14 @@ public class ChasePlayerIfClose : MonoBehaviour
     private Vector3 jumpDirection;
     private bool wasJumpingLastFrame = false;
     private UnityEngine.CharacterController characterController;
+    private AudioSource audioSource;
     private Vector3 ZeroY(Vector3 v) {
         return new Vector3(v.x, 0, v.z);
     }
     void OnEnable() {
         player = GameObject.Find("Vampire").gameObject;
         characterController = GetComponent<UnityEngine.CharacterController>();
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -61,6 +63,10 @@ public class ChasePlayerIfClose : MonoBehaviour
                 if (dist > jumpDistance * 1.5f) {
                     lastJumpTime = Time.time;
                     jumpDirection = toPlayerNoY.normalized;
+                    if (BeetSfxManager.CanPlayJumpSound()) {
+                        audioSource.clip = BeetSfxManager.JumpSound();
+                        audioSource.Play();
+                    }
                 }
             }
         }

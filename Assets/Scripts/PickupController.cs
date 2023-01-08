@@ -35,6 +35,7 @@ public class PickupController : MonoBehaviour
         float dist = Vector3.Distance(vampire.transform.position, transform.position);
         if(!following){
             if(dist <= pickupRange) {
+                PickupSfxManager.PickupStarted();
                 following = true;
                 if (goToBloodBar) {
                     uiObject = GameObject.Instantiate(uiObjectPrefab);
@@ -49,9 +50,8 @@ public class PickupController : MonoBehaviour
         } else {
             if (uiObject) {
                 uiObjUpVel *= .995f;
-                // float offsetFromTop = (1 - bloodAmountController.amount) * barHeight;
                 uiObjSideVel += Time.deltaTime * 2000f;
-                var target = BloodUIController.instance.GetBarTopPosition();// new Vector3(90, Camera.main.pixelHeight - 200 - offsetFromTop, 0);
+                var target = BloodUIController.instance.GetBarTopPosition();
                 var toTarget = target - uiObject.transform.position;
                 var toTargetScaled = toTarget.normalized * uiObjSideVel;
                 uiObject.transform.position += (toTargetScaled + Vector3.up * uiObjUpVel) * Time.deltaTime;
@@ -67,6 +67,7 @@ public class PickupController : MonoBehaviour
     }
 
     void HandleCollect(){
+        PickupSfxManager.PickupFinished();
         var bloodAmountController = vampire.GetComponent<BloodAmountController>();
         if (bloodAmountController) {
             bloodAmountController.Add(.4f);

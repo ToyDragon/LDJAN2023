@@ -550,26 +550,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5497934632035251717, guid: 51c3c3d5fdefdac45b4903bfe263560a, type: 3}
-      propertyPath: MaxDistance
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5497934632035251717, guid: 51c3c3d5fdefdac45b4903bfe263560a, type: 3}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5497934632035251717, guid: 51c3c3d5fdefdac45b4903bfe263560a, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].time
-      value: 0.257297
-      objectReference: {fileID: 0}
-    - target: {fileID: 5497934632035251717, guid: 51c3c3d5fdefdac45b4903bfe263560a, type: 3}
-      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value
-      value: 0.05834961
-      objectReference: {fileID: 0}
-    - target: {fileID: 5497934632035251717, guid: 51c3c3d5fdefdac45b4903bfe263560a, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8465972132891823322, guid: 51c3c3d5fdefdac45b4903bfe263560a, type: 3}
       propertyPath: m_Name
       value: Prop Farming Stuff

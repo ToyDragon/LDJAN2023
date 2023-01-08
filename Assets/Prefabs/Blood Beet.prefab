@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909c1cfc8b40c2b4e88794ee089fe5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skipUpDownTris: 1
+  disableAfterCreating: 0
   outlineMaterial: {fileID: 2100000, guid: 75877e9a3ef9ab346a6bdb7ff366c722, type: 2}
 --- !u!1 &8666322228191691443
 GameObject:

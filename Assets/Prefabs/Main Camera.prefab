@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd63313b72bfe441a0057f3b0e106ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vampire: {fileID: 0}
   cardMaterials:
   - {fileID: 2100000, guid: dc03d7b310076d4478f3567142a52f1f, type: 2}
   - {fileID: 2100000, guid: 16a089f3fab835b4ead05205fd23a9ee, type: 2}
@@ -148,7 +149,7 @@ PrefabInstance:
     - target: {fileID: 825969577154671484, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 16a089f3fab835b4ead05205fd23a9ee, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Name
       value: Upgrade Card
@@ -222,7 +223,7 @@ PrefabInstance:
     - target: {fileID: 825969577154671484, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: dc03d7b310076d4478f3567142a52f1f, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Name
       value: Upgrade Card (2)
@@ -292,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 825969577154671484, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d0458bf8e9d0f454d97a7e44d803a2ad, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Name
       value: Upgrade Card (1)

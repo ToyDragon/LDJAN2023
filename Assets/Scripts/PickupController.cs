@@ -29,6 +29,10 @@ public class PickupController : MonoBehaviour
     }
 
     void HandleCollect(){
+        var bloodAmountController = vampire.GetComponent<BloodAmountController>();
+        if (bloodAmountController) {
+            bloodAmountController.Add(.4f);
+        }
         GameObject.Destroy(gameObject);
     }
 }

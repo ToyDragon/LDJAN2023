@@ -24,7 +24,6 @@ public class IntroSequenceManager : MonoBehaviour
     private float moveTime = 0f;
     private float startTime = 0f;
     private bool inBlackout = false;
-    private float currentTransparency = 0f;
     public GameObject voObject;
     void Update()
     {

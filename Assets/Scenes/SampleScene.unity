@@ -699,10 +699,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7326461762595428077, guid: 1c7c9da739e8eae44afd5916c60cafb7, type: 3}
-      propertyPath: requiredXP
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8994244561560460872, guid: 1c7c9da739e8eae44afd5916c60cafb7, type: 3}
       propertyPath: m_Name
       value: Vampire

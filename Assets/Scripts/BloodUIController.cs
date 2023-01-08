@@ -12,7 +12,7 @@ public class BloodUIController : MonoBehaviour
     public RectTransform displayTransform;
     private float bloodVelocity = 0f;
     public Vector3 GetBarTopPosition() {
-        return displayTransform.transform.position + Vector3.up * (displayTransform.transform.position.y - 200f);
+        return displayTransform.transform.position + Vector3.up * (displayTransform.transform.position.y - 50f);
     }
     void OnEnable() {
         instance = this;

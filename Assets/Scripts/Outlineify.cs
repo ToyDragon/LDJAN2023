@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Outlineify : MonoBehaviour
 {
+    public bool skipUpDownTris = true;
+    public bool disableAfterCreating = false;
     public Material outlineMaterial;
     private GameObject outlineObj;
     void Start()
@@ -46,12 +48,14 @@ public class Outlineify : MonoBehaviour
         int[] flippedTriangles = new int[combinedMesh.triangles.Length];
         int skippedCount = 0;
         for (int i = 0; i < flippedTriangles.Length; i += 3) {
-            Vector3 aToB = combinedMesh.vertices[combinedMesh.triangles[i + 1]] - combinedMesh.vertices[combinedMesh.triangles[i + 0]];
-            Vector3 bToC = combinedMesh.vertices[combinedMesh.triangles[i + 2]] - combinedMesh.vertices[combinedMesh.triangles[i + 1]];
-            Vector3 normalDir = Vector3.Cross(aToB, bToC);
-            if (Mathf.Abs(normalDir.y) > .9f) {
-                skippedCount++;
-                continue;
+            if(skipUpDownTris){
+                Vector3 aToB = combinedMesh.vertices[combinedMesh.triangles[i + 1]] - combinedMesh.vertices[combinedMesh.triangles[i + 0]];
+                Vector3 bToC = combinedMesh.vertices[combinedMesh.triangles[i + 2]] - combinedMesh.vertices[combinedMesh.triangles[i + 1]];
+                Vector3 normalDir = Vector3.Cross(aToB, bToC);
+                if (Mathf.Abs(normalDir.y) > .9f) {
+                    skippedCount++;
+                    continue;
+                }
             }
             flippedTriangles[i + 0 - skippedCount*3] = combinedMesh.triangles[i + 2];
             flippedTriangles[i + 1 - skippedCount*3] = combinedMesh.triangles[i + 1];
@@ -64,6 +68,8 @@ public class Outlineify : MonoBehaviour
         transform.parent = storedParent;
         transform.position = storedPosition;
         transform.localScale = storedScale;
+
+        if(disableAfterCreating) outline.SetActive(false);
     }
 
     void OnEnable() {

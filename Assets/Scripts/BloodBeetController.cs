@@ -20,6 +20,7 @@ public class BloodBeetController : MonoBehaviour
             state = BeetState.GROWING;
             heightChangeForGrow = -modelOffset.localPosition.y;
         } else if(state == BeetState.ALIVE){
+            //Debug.Log("lowering health by " + hitData.damage + "\nNew health is " + (health-hitData.damage));
             health -= hitData.damage;
             if(health <= 0){
                 HandleDeath();

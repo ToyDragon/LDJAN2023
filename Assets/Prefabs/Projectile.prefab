@@ -140,7 +140,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   despawnTime: 1.5
-  aliveTime: 0
+  pierce: 0
+  maxPierces: 0
+  splash: 0
+  splashRadius: 0
+  splashDamageMultiplier: 0
+  explosionPrefab: {fileID: 7943953085306795029, guid: 7fadaad78e2a69043a5955b01e8ff3c1, type: 3}
 --- !u!65 &5204010015511985952
 BoxCollider:
   m_ObjectHideFlags: 0

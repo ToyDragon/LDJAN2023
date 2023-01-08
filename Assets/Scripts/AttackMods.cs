@@ -19,12 +19,14 @@ public class AttackMods: MonoBehaviour
                 break;
             case "pierce":
                 piercing = true;
+                numberOfPierces += mod.intValue;
                 break;
             case "numPierce":
                 numberOfPierces += mod.intValue;
                 break;
             case "splash":
                 splashDamage = true;
+                splashDamageRadius += mod.floatValue;
                 break;
             case "splashRadius":
                 splashDamageRadius += mod.floatValue;
@@ -49,7 +51,7 @@ public class Mod{
         materialIndex = matIndex;
     }
 
-    public string ToString(){
+    public override string ToString(){
         return modifies + " " + floatValue + " " + intValue + " " + materialIndex;
     }
 }
@@ -57,9 +59,9 @@ public class Mod{
 public static class ModPool{
     public static Mod[] GetMajorUpgrades1(){
         return new Mod[]{
-            new Mod("splash", 0),
-            new Mod("pierce", 1),
-            new Mod("numProj", 2, 0f, 4)
+            new Mod("splash", 0, 2.5f),
+            new Mod("pierce", 1, 0f, 3),
+            new Mod("numProj", 2, 0f, 2)
         };
     }
 

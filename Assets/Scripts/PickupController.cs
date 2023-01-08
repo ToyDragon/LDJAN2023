@@ -9,6 +9,7 @@ public class PickupController : MonoBehaviour
     float pickupRange = 5f;
     float collectRange = 1f;
     float followSpeed = 25f;
+    public float XP = 10f;
     public bool goToBloodBar;
     // private float barHeight;
     public GameObject uiObjectPrefab;
@@ -70,7 +71,9 @@ public class PickupController : MonoBehaviour
         PickupSfxManager.PickupFinished();
         var bloodAmountController = vampire.GetComponent<BloodAmountController>();
         if (bloodAmountController) {
-            bloodAmountController.Add(.4f);
+            float bloodToAdd = .4f;
+            float extraBlood = bloodAmountController.Add(bloodToAdd);
+            XPLevelController.instance.AddXP(XP * (extraBlood / bloodToAdd));
         }
         if (uiObject) {
             GameObject.Destroy(uiObject);

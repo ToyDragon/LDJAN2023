@@ -14,7 +14,9 @@ public class BloodAmountController : MonoBehaviour
     void FixedUpdate() {
         amount = Mathf.Clamp01(amount + deltaPerSecond * Time.fixedDeltaTime);
     }
-    public void Add(float toAdd) {
-        amount = Mathf.Clamp01(amount + toAdd);
+    public float Add(float toAdd) {
+        float actualAdded = Mathf.Min(1f - amount, toAdd);
+        amount += actualAdded;
+        return toAdd - actualAdded;
     }
 }

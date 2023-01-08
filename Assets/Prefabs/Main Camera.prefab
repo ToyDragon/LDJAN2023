@@ -134,7 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd63313b72bfe441a0057f3b0e106ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vampire: {fileID: 0}
   cardMaterials:
   - {fileID: 2100000, guid: dc03d7b310076d4478f3567142a52f1f, type: 2}
   - {fileID: 2100000, guid: 16a089f3fab835b4ead05205fd23a9ee, type: 2}

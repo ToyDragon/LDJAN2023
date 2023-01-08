@@ -5,12 +5,13 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     CardController hoveredCard;
-    public GameObject vampire;
+    private GameObject vampire;
 
     public List<Material> cardMaterials = new List<Material>();
     // Start is called before the first frame update
     void Start()
     {
+        vampire = GameObject.Find("Vampire");
         ShowCards(false);
     }
 

@@ -27,7 +27,6 @@ public class BloodUIController : MonoBehaviour
         float height = ((RectTransform)displayTransform.parent).rect.yMax - ((RectTransform)displayTransform.parent).rect.yMin;
         float displayedPercent = (displayTransform.sizeDelta.y / height);
         float newPercent = Mathf.Clamp01(displayedPercent + bloodVelocity * Time.deltaTime);
-        Debug.Log("From " + displayedPercent + " to " + newPercent);
         displayTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 0, newPercent * height);
     }
 }

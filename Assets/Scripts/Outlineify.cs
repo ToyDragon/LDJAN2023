@@ -5,26 +5,31 @@ using UnityEngine;
 public class Outlineify : MonoBehaviour
 {
     public Material outlineMaterial;
+    private GameObject outlineObj;
     void Start()
     {
-        if (transform.Find("outline")) {
+        var outlineTransform = transform.Find("outline");
+        if (outlineTransform) {
+            outlineObj = outlineTransform.gameObject;
             return;
         }
 
         // The mesh combination assumes the object is at 0,0,0 and scale 1,1,1
+        Transform storedParent = transform.parent;
         Vector3 storedPosition = transform.position;
         Vector3 storedScale = transform.localScale;
+        transform.parent = null;
         transform.position = Vector3.zero;
         transform.localScale = Vector3.one;
 
         // Create a sub object that will house and render the outline.
-        GameObject outline = new GameObject("outline");
-        outline.transform.SetParent(transform);
-        outline.AddComponent<MeshRenderer>().material = outlineMaterial;
-        outline.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+        outlineObj = new GameObject("outline");
+        outlineObj.transform.SetParent(transform);
+        outlineObj.AddComponent<MeshRenderer>().material = outlineMaterial;
+        outlineObj.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
 
         // Loop through child meshes to find ones that need outlines.
-        var combinedMeshFilter = outline.AddComponent<MeshFilter>();
+        var combinedMeshFilter = outlineObj.AddComponent<MeshFilter>();
         List<CombineInstance> combineInstances = new List<CombineInstance>();
         var combinedMesh = new Mesh();
         foreach (var childMesh in GetComponentsInChildren<MeshFilter>()) {
@@ -56,7 +61,16 @@ public class Outlineify : MonoBehaviour
         combinedMeshFilter.sharedMesh = combinedMesh;
 
         // Restore saved pos/scale.
+        transform.parent = storedParent;
         transform.position = storedPosition;
         transform.localScale = storedScale;
+    }
+
+    void OnEnable() {
+        outlineObj.SetActive(true);
+    }
+
+    void OnDisable() {
+        outlineObj.SetActive(false);
     }
 }

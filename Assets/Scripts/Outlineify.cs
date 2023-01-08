@@ -69,7 +69,7 @@ public class Outlineify : MonoBehaviour
         transform.position = storedPosition;
         transform.localScale = storedScale;
 
-        if(disableAfterCreating) outline.SetActive(false);
+        if(disableAfterCreating) outlineObj.SetActive(false);
     }
 
     void OnEnable() {

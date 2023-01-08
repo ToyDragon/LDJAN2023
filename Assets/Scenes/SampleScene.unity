@@ -128,7 +128,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 537121861, guid: 1c7c9da739e8eae44afd5916c60cafb7, type: 3}
   m_PrefabInstance: {fileID: 8994244561397494037}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1414631033}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28f25cb72c1c0d84bb4fa6f8cfa07247, type: 3}
@@ -304,7 +304,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2784112356192268094, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
+      propertyPath: vampire
+      value: 
+      objectReference: {fileID: 1414631033}
+    - target: {fileID: 3302626833990411145, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302626835007208848, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302626835051091394, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7004890031165614086, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
+    - {fileID: 7004890030684517919, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
+    - {fileID: 7004890032251231821, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
 --- !u!1 &1129370894
 GameObject:
@@ -374,6 +393,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1414631033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8994244561560460872, guid: 1c7c9da739e8eae44afd5916c60cafb7, type: 3}
+  m_PrefabInstance: {fileID: 8994244561397494037}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1414631039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414631033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf504a660185ffa4aba8df9a5746f871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfProjectiles: 1
+  piercing: 0
+  numberOfPierces: 0
+  splashDamage: 0
+  splashDamageRadius: 5
+  splashDamageModifier: 0.25
 --- !u!1001 &4615455804979313458
 PrefabInstance:
   m_ObjectHideFlags: 0

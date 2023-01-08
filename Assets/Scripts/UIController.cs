@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     CardController hoveredCard;
+    public GameObject vampire;
 
     public List<Material> cardMaterials = new List<Material>();
     // Start is called before the first frame update
@@ -16,15 +17,19 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Backspace)){
+            GameState.selectingUpgrade = !GameState.selectingUpgrade;
+            SetCardModsAndMaterials(1);
+            ShowCards(GameState.selectingUpgrade);
+        }
+
+
         if(GameState.selectingUpgrade){
-            Debug.Log("selecting upgrade");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if(Physics.Raycast(ray, out hit)){
-                Debug.Log("hit an object");
-                CardController card = hit.transform.gameObject.GetComponent<CardController>();
+                CardController card = hit.transform.GetComponent<CardController>();
                 if(card != null){
-                    Debug.Log("object was a card");
                     if(hoveredCard != null && hoveredCard != card){
                         //unhighlight previous card, highlight new
                         hoveredCard.Highlight(false);
@@ -41,12 +46,35 @@ public class UIController : MonoBehaviour
                     hoveredCard = null;
                 }
             }
+            if(Input.GetMouseButtonDown(0) && hoveredCard != null){
+                Debug.Log("Selecting card - " + hoveredCard.gameObject.name);
+                SelectCard(hoveredCard);
+            }
+        }
+    }
+
+    public void SetCardModsAndMaterials(int level){
+        Mod[] mods = ModPool.GetModsForLevel(level);
+        for(int i = 0; i < 3; i++){
+            GameObject card = transform.GetChild(i).gameObject;
+            Debug.Log(card.gameObject.name);
+            CardController controller = card.GetComponentInChildren<CardController>();
+            controller.mod = mods[i];
+            card.transform.GetChild(0).GetComponent<MeshRenderer>().material = cardMaterials[mods[i].materialIndex];
         }
     }
 
     public void ShowCards(bool value){
         for(int i = 0; i < 3; i++){
-            transform.GetChild(i).gameObject.SetActive(value);
+            GameObject card = transform.GetChild(i).gameObject;
+            card.SetActive(value);
         }
+    }
+
+    public void SelectCard(CardController card){
+        AttackMods mods = vampire.GetComponent<AttackMods>();
+        mods.ApplyMod(card.mod);
+        ShowCards(false);
+        GameState.selectingUpgrade = false;
     }
 }

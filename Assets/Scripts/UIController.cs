@@ -69,9 +69,10 @@ public class UIController : MonoBehaviour
     }
 
     public void ShowCards(bool value){
-        for(int i = 0; i < 3; i++){
-            GameObject card = transform.GetChild(i).gameObject;
-            card.SetActive(value);
+        var cards = GetComponentsInChildren<CardController>(true);
+        foreach(var card in cards){
+            Debug.Log(card.transform.parent.gameObject.name);
+            card.transform.parent.gameObject.SetActive(value);
         }
     }
 

@@ -293,18 +293,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7331227953112583245, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
-      propertyPath: clipTime
-      value: 1.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 7331227953112583245, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
-      propertyPath: clipVolume
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8794706612017284000, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
-      propertyPath: musicLength
-      value: 71.7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4597da54de27c244a1cd7b3c2539b81, type: 3}
 --- !u!1 &1129370894
@@ -653,10 +641,6 @@ PrefabInstance:
     - target: {fileID: 7484941784476042648, guid: dbafe0c32308f704da741c138ac12e3a, type: 3}
       propertyPath: m_Name
       value: Fences
-      objectReference: {fileID: 0}
-    - target: {fileID: 7484941784476042648, guid: dbafe0c32308f704da741c138ac12e3a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7484941784476042649, guid: dbafe0c32308f704da741c138ac12e3a, type: 3}
       propertyPath: m_RootOrder

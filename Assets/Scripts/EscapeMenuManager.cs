@@ -49,6 +49,7 @@ public class EscapeMenuManager : MonoBehaviour
 
         if (GUILayout.Button("Close")) {
             isOpen = false;
+            GameState.paused = false;
         }
     }
 }

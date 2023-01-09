@@ -4817,6 +4817,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2034805803721166630, guid: 7465805c5e5b8c74f8c43f1fa53d9d07, type: 3}
   slowAttackCooldown: 0.3
   fastAttackCooldown: 0.1
+  attackSpeedMultiplier: 1
   attackSound: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
   bloodAmountController: {fileID: 0}
   projectileSpread: {x: 0, y: 10, z: 0}
@@ -4864,7 +4865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f25cb72c1c0d84bb4fa6f8cfa07247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deltaPerSecond: -0.1
+  deltaPerSecond: -0.05
 --- !u!114 &1414631039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4883,6 +4884,11 @@ MonoBehaviour:
   splashDamage: 0
   splashDamageRadius: 5
   splashDamageModifier: 0.25
+  attackCooldownFast: 0.75
+  attackCooldownSlow: 1
+  attackSpeedMultiplier: 1
+  moveSpeedMultiplier: 1
+  projectileRange: 2.5
 --- !u!82 &7877510031851438152
 AudioSource:
   m_ObjectHideFlags: 0

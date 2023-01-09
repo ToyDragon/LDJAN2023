@@ -14,7 +14,8 @@ public class CharacterController : MonoBehaviour
     private UnityEngine.CharacterController unityCharController;
     public GameObject projectilePrefab;
     public float slowAttackCooldown = 1f;
-    public float fastAttackCooldown = .1f;
+    public float fastAttackCooldown = .75f;
+    public float attackSpeedMultiplier = 1.0f;
     private float timeSinceLastAttack = 0f;
     private GameObject legRoot;
     private Vector3 lastVelocityThree;
@@ -100,14 +101,18 @@ public class CharacterController : MonoBehaviour
             lastVelocityThree = velocityThree;
         }
 
-        float moveSpeed = Mathf.Lerp(slowMoveSpeed, fastMoveSpeed, bloodAmountController.amount);
+        AttackMods mods = GetComponent<AttackMods>();
+
+        float moveSpeed = Mathf.Lerp(slowMoveSpeed * mods.moveSpeedMultiplier, fastMoveSpeed * mods.moveSpeedMultiplier, bloodAmountController.amount);
         unityCharController.Move(velocityThree * moveSpeed * Time.fixedDeltaTime);
         animator.SetFloat("speed", velocityThree.magnitude * moveSpeed);
     }
 
     void HandleMouseInput(){
         timeSinceLastAttack += Time.deltaTime;
-        float attackCooldown = Mathf.Lerp(slowAttackCooldown, fastAttackCooldown, bloodAmountController.amount);
+        AttackMods mods = GetComponent<AttackMods>();
+        float attackCooldown = Mathf.Lerp(mods.attackCooldownSlow*mods.attackSpeedMultiplier, mods.attackCooldownFast*mods.attackSpeedMultiplier, bloodAmountController.amount);
+        if(attackCooldown < .1f) attackCooldown = .1f;
         if(Input.GetMouseButton(0) && timeSinceLastAttack >= attackCooldown){
             Attack();
         }

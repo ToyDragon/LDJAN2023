@@ -6,18 +6,19 @@ public class BloodBeetController : MonoBehaviour
 {
     public BeetState state = BeetState.IDLE;
     public int health = 3;
-    float timeToGrow = 2.0f;
     float growthProgress = 0f;
     public GameObject pickupPrefab;
     private float heightChangeForGrow = 0;
     private Transform modelOffset;
+    float timeToGrow;
     void OnEnable() {
         modelOffset = transform.Find("ModelOffset");
     }
 
     public void HandleHit(HitData hitData){
         if(state == BeetState.IDLE){
-            state = BeetState.GROWING;
+            timeToGrow = GlobalConstants.beetGrowthTime;
+            state = BeetState.GROWING;            
             heightChangeForGrow = -modelOffset.localPosition.y;
         } else if(state == BeetState.ALIVE){
             //Debug.Log("lowering health by " + hitData.damage + "\nNew health is " + (health-hitData.damage));

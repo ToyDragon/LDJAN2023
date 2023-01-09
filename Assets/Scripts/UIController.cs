@@ -18,11 +18,9 @@ public class UIController : MonoBehaviour
 
     void OnLevelUp(){
         int level = XPLevelController.instance.level;
-        if(level == 5){
-            GameState.selectingUpgrade = true;
-            SetCardModsAndMaterials(1);
-            ShowCards(GameState.selectingUpgrade);
-        }
+        GameState.selectingUpgrade = true;
+        SetCardModsAndMaterials(level);
+        ShowCards(GameState.selectingUpgrade);
     }
 
     // Update is called once per frame
@@ -51,7 +49,7 @@ public class UIController : MonoBehaviour
                 }
             }
             if(Input.GetMouseButtonDown(0) && hoveredCard != null){
-                Debug.Log("Selecting card - " + hoveredCard.gameObject.name);
+                //Debug.Log("Selecting card - " + hoveredCard.gameObject.name);
                 SelectCard(hoveredCard);
             }
         }
@@ -59,12 +57,11 @@ public class UIController : MonoBehaviour
 
     public void SetCardModsAndMaterials(int level){
         Mod[] mods = ModPool.GetModsForLevel(level);
+        CardController[] cards = transform.GetComponentsInChildren<CardController>(true);
         for(int i = 0; i < 3; i++){
-            GameObject card = transform.GetChild(i).gameObject;
-            //Debug.Log(card.gameObject.name);
-            CardController controller = card.GetComponentInChildren<CardController>();
-            controller.mod = mods[i];
-            card.transform.GetChild(0).GetComponent<MeshRenderer>().material = cardMaterials[mods[i].materialIndex];
+            GameObject card = cards[i].transform.parent.gameObject;
+            cards[i].mod = mods[i];
+            cards[i].GetComponent<MeshRenderer>().material = cardMaterials[mods[i].materialIndex];
         }
     }
 

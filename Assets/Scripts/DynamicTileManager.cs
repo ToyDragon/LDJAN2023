@@ -56,7 +56,7 @@ public class DynamicTileManager : MonoBehaviour
             var rootObj = tileToRootObject[toLoad] = new GameObject();
             rootObj.name = "Tile " + toLoad;
             float densityScore = 1f - toLoad.magnitude / 30f;
-            Debug.Log("Created tile " + rootObj.name + " with density " + densityScore);
+            // Debug.Log("Created tile " + rootObj.name + " with density " + densityScore);
             if (Random.Range(0, 1f) <= densityScore) {
                 var newGroup = GameObject.Instantiate(beetGroupPrefabs[Random.Range(0, beetGroupPrefabs.Count)]);
                 newGroup.transform.SetParent(rootObj.transform);
@@ -66,7 +66,6 @@ public class DynamicTileManager : MonoBehaviour
                 if (Random.Range(0, 1f) >= densityScore * densityScore) {
                     BloodBeetController[] beetsInBatch = newGroup.GetComponentsInChildren<BloodBeetController>();
                     int amtToHide = Mathf.RoundToInt((1f - Random.Range(densityScore, 1f)) * beetsInBatch.Length);
-                    Debug.Log("... and hid " + amtToHide + " beets.");
                     for (int i = 0; i < amtToHide; i++) {
                         beetsInBatch[i].gameObject.SetActive(false);
                     }

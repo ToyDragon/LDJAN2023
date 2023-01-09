@@ -51,8 +51,8 @@ public class Outlineify : MonoBehaviour
             if(skipUpDownTris){
                 Vector3 aToB = combinedMesh.vertices[combinedMesh.triangles[i + 1]] - combinedMesh.vertices[combinedMesh.triangles[i + 0]];
                 Vector3 bToC = combinedMesh.vertices[combinedMesh.triangles[i + 2]] - combinedMesh.vertices[combinedMesh.triangles[i + 1]];
-                Vector3 normalDir = Vector3.Cross(aToB, bToC);
-                if (Mathf.Abs(normalDir.y) > .9f) {
+                Vector3 normalDir = Vector3.Cross(aToB.normalized, bToC.normalized);
+                if (Mathf.Abs(normalDir.y) > .8f) {
                     skippedCount++;
                     continue;
                 }

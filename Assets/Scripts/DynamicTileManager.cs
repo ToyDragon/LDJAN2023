@@ -6,8 +6,8 @@ public class DynamicTileManager : MonoBehaviour
 {
     public Dictionary<Vector2Int, GameObject> tileToRootObject = new Dictionary<Vector2Int, GameObject>();
     public List<GameObject> beetGroupPrefabs = new List<GameObject>();
-    public float tileSize = 25f;
-    public int loadedTileRange = 10;
+    public float tileSize = 32f;
+    public int loadedTileRange = 8;
     private Vector2Int lastLoadedTile = Vector2Int.one * -1000;
     private GameObject vampire;
     private HashSet<Vector2Int> activeTiles = new HashSet<Vector2Int>();
@@ -62,10 +62,11 @@ public class DynamicTileManager : MonoBehaviour
             float densityScore = densityByDistance.Evaluate(distanceScore);
             // Debug.Log("Created tile " + rootObj.name + " with density " + densityScore);
             if (Random.Range(0, 1f) <= densityScore) {
+
                 var newGroup = GameObject.Instantiate(beetGroupPrefabs[Random.Range(0, beetGroupPrefabs.Count)]);
                 newGroup.transform.SetParent(rootObj.transform);
                 var inUnitCircle = Random.insideUnitCircle;
-                newGroup.transform.position = (new Vector3(toLoad.x, 0, toLoad.y) + new Vector3(inUnitCircle.x, 0, inUnitCircle.y) * .15f) * tileSize;
+                newGroup.transform.position = (new Vector3(toLoad.x, 0, toLoad.y) + new Vector3(inUnitCircle.x, 0, inUnitCircle.y) * .05f) * tileSize;
 
                 BloodBeetController[] beetsInBatch = newGroup.GetComponentsInChildren<BloodBeetController>();
                 if (Random.Range(0, 1f) >= densityScore * densityScore) {

@@ -6,6 +6,7 @@ public class CardController : MonoBehaviour
 {
     public Mod mod = null;
     // Start is called before the first frame update
+    private Outlineify outlineify;
     void Start()
     {
         
@@ -18,12 +19,12 @@ public class CardController : MonoBehaviour
     }
 
     void OnEnable(){
-        if(transform.parent.childCount > 1) transform.parent.GetChild(1).gameObject.SetActive(false);
+        outlineify = GetComponentInParent<Outlineify>();
+        outlineify.enabled = false;
     }
 
     public void Highlight(bool value){
-        if(transform.parent.childCount <= 1) return;
-        GameObject outline = transform.parent.GetChild(1).gameObject;
-        outline.SetActive(value);
+        Debug.Log(gameObject.name + " highlight " + value);
+        outlineify.enabled = value;
     }
 }

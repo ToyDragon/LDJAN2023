@@ -22,6 +22,7 @@ public class CharacterController : MonoBehaviour
     private Animator animator;
     private AudioSource audioSource;
     public AudioClip attackSound;
+    private float lastAttackSoundTime;
     public BloodAmountController bloodAmountController;
     public Vector3 projectileSpread = new Vector3(0f, 2.5f, 0f);
     private float originalYPos;
@@ -122,7 +123,6 @@ public class CharacterController : MonoBehaviour
     }
 
     void Attack(){
-        
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         var rayStepsToGround = ray.origin.y / Mathf.Abs(ray.direction.y);
         var intersectionPoint = ray.origin + rayStepsToGround * ray.direction;
@@ -146,7 +146,10 @@ public class CharacterController : MonoBehaviour
         
         timeSinceLastAttack = 0f;
 
-        audioSource.PlayOneShot(attackSound);
+        if (Time.time - lastAttackSoundTime > .1f) {
+            audioSource.PlayOneShot(attackSound);
+            lastAttackSoundTime = Time.time;
+        }
     }
 
     void SyncCameraLocation(){

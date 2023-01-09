@@ -44,7 +44,9 @@ public class ChasePlayerIfClose : MonoBehaviour
             modelOffset.transform.localPosition = Vector3.zero;
             modelOffset.transform.localRotation = Quaternion.identity;
         } else if (jumping) {
+        UnityEngine.Profiling.Profiler.BeginSample("MoveBeet");
             characterController.Move(jumpDirection * Time.deltaTime * jumpDistance / jumpTime);
+        UnityEngine.Profiling.Profiler.EndSample();
             transform.position -= Vector3.up * transform.position.y; // Ensure y is always 0
             modelOffset.localRotation = Quaternion.Euler(jumpTiltCurve.Evaluate(jumpProgress) * tiltMultiplier, 0, 0);
             modelOffset.localPosition = Vector3.up * jumpHeightCurve.Evaluate(jumpProgress) * jumpHeight;

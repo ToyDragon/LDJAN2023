@@ -350,7 +350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
       propertyPath: loadedTileRange
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
       propertyPath: beetGroupPrefabs.Array.size

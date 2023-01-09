@@ -101,7 +101,7 @@ public class CharacterController : MonoBehaviour
         }
 
         float moveSpeed = Mathf.Lerp(slowMoveSpeed, fastMoveSpeed, bloodAmountController.amount);
-        unityCharController.SimpleMove(velocityThree * moveSpeed);
+        unityCharController.Move(velocityThree * moveSpeed * Time.fixedDeltaTime);
         animator.SetFloat("speed", velocityThree.magnitude * moveSpeed);
     }
 

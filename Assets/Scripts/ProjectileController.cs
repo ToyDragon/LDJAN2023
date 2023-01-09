@@ -25,6 +25,7 @@ public class ProjectileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameState.SuppressUpdates()) return;
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
         aliveTime += Time.deltaTime;
         if(aliveTime > despawnTime) GameObject.Destroy(gameObject);
@@ -35,7 +36,7 @@ public class ProjectileController : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collider){
-        if(destroying) return;
+        if(destroying || GameState.selectingUpgrade) return;
         //Debug.Log("Collided with " + collider.gameObject.name + " at position " + collider.transform.position);
         BloodBeetController beet = collider.gameObject.GetComponent<BloodBeetController>();
         if(beet != null){

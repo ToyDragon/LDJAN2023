@@ -27,6 +27,7 @@ public class EscapeMenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             isOpen = !isOpen;
+            GameState.paused = isOpen;
             if (isOpen) {
                 windowRect = new Rect(Screen.width / 2 - 300, Screen.height / 2 - 150, 600, 300);
             }

@@ -28,7 +28,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameState.selectingUpgrade){
+        if(GameState.SuppressUpdates() && !GameState.paused){
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if(Physics.Raycast(ray, out hit)){

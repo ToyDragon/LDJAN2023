@@ -31,6 +31,7 @@ public class ChasePlayerIfClose : MonoBehaviour
     }
     void Update()
     {
+        if(GameState.SuppressUpdates()) return;
         if (chasing) {
             transform.LookAt(player.transform.position);
         }

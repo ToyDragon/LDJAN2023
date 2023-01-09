@@ -36,10 +36,12 @@ public class CharacterController : MonoBehaviour
     }
 
     void Update(){
+        if(GameState.SuppressUpdates()) return;
         HandleMouseInput();
     }
 
     void FixedUpdate(){
+        if(GameState.SuppressUpdates()) return;
         LookAtMouse();
         HandleKeyInput();
         SyncCameraLocation();

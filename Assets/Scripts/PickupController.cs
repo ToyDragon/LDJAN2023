@@ -32,9 +32,9 @@ public class PickupController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         float dist = Vector3.Distance(vampire.transform.position, transform.position);
         if(!following){
+            if(GameState.SuppressUpdates()) return;
             if(dist <= pickupRange) {
                 PickupSfxManager.PickupStarted();
                 following = true;

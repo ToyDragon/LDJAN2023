@@ -29,6 +29,7 @@ public class BloodBeetController : MonoBehaviour
     }
 
     void Update(){
+        if(GameState.SuppressUpdates()) return;
         if(state == BeetState.GROWING){
             growthProgress += Time.deltaTime;
             modelOffset.localPosition += Vector3.up * heightChangeForGrow * Time.deltaTime / timeToGrow;

@@ -7,7 +7,8 @@ public class PickupSfxManager : MonoBehaviour
     public static PickupSfxManager instance;
     public int maxQueueSize = 3;
     public float soundDelay = .15f;
-    private AudioSource audioSource;
+    private AudioSource pickupAudioSource;
+    private AudioSource finishAudioSource;
 
     public AudioClip pickupSound;
     private int queuedPickups = 0;
@@ -20,14 +21,16 @@ public class PickupSfxManager : MonoBehaviour
     private float lastFinishScoreDecay = -100;
     void OnEnable() {
         instance = this;
-        audioSource = GetComponent<AudioSource>();
+        var sources = GetComponents<AudioSource>();
+        pickupAudioSource = sources[0];
+        finishAudioSource = sources[0];
     }
     void Update()
     {
         if (queuedFinishes > 0 && Time.time - lastFinish >= soundDelay) {
             queuedFinishes--;
             lastFinish = Time.time;
-            audioSource.PlayOneShot(finishSounds[finishSoundScore]);
+            finishAudioSource.PlayOneShot(finishSounds[finishSoundScore]);
             finishSoundScore = finishSoundScore + 1;
             if (finishSoundScore >= finishSounds.Count) {
                 finishSoundScore -= 4;
@@ -37,7 +40,7 @@ public class PickupSfxManager : MonoBehaviour
         if (queuedPickups > 0 && Time.time - lastPickup >= soundDelay) {
             queuedPickups--;
             lastPickup = Time.time;
-            audioSource.PlayOneShot(pickupSound);
+            pickupAudioSource.PlayOneShot(pickupSound);
         }
 
         float timeSinceDecayOrPlay = Mathf.Min(Time.time - lastFinish, Time.time - lastFinishScoreDecay);

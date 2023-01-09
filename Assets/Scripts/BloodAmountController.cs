@@ -9,6 +9,7 @@ public class BloodAmountController : MonoBehaviour
     // 0 to 1
     public float amount { get; private set; }
     public float deltaPerSecond;
+    public bool isDead;
     void OnEnable() {
         instance = this;
         amount = 1f;
@@ -16,7 +17,8 @@ public class BloodAmountController : MonoBehaviour
     void FixedUpdate() {
         if(GameState.SuppressUpdates()) return;
         amount = Mathf.Clamp01(amount + deltaPerSecond * (DifficultyOverTimeManager.GetDifficultyMultiplier() / 5f) * GlobalConstants.bloodDecayModifier * Time.fixedDeltaTime);
-        if(amount == 0){
+        if(!isDead && amount == 0 && PickupController.amtInFlight == 0){
+            isDead = true;
             youDied.SetActive(true);
         }
     }

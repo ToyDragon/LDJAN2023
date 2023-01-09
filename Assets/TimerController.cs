@@ -14,7 +14,7 @@ public class TimerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameState.SuppressUpdates()) return;
+        if(GameState.SuppressUpdates() || BloodAmountController.instance.isDead) return;
         timeSinceStart += Time.deltaTime;
         int seconds = (int)timeSinceStart;
         int minutes = seconds/60;

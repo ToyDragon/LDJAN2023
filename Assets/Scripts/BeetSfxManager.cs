@@ -11,7 +11,7 @@ public class BeetSfxManager : MonoBehaviour
         instance = this;
     }
     public static bool CanPlayJumpSound() {
-        if (Time.time - instance.lastJumpSound > .11f) {
+        if (Time.time - instance.lastJumpSound > .25f) {
             instance.lastJumpSound = Time.time;
             return true;
         }

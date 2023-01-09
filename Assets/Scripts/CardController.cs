@@ -24,7 +24,6 @@ public class CardController : MonoBehaviour
     }
 
     public void Highlight(bool value){
-        Debug.Log(gameObject.name + " highlight " + value);
         outlineify.enabled = value;
     }
 }

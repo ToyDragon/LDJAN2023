@@ -18,6 +18,7 @@ public class PickupController : MonoBehaviour
     private float timeUIUpExpires = -100f;
     private float uiObjUpVel = 1000f;
     private float uiObjSideVel = 0f;
+    public static int amtInFlight;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,7 @@ public class PickupController : MonoBehaviour
             if(GameState.SuppressUpdates()) return;
             if(dist <= GlobalConstants.pickupRange) {
                 PickupSfxManager.PickupStarted();
+                amtInFlight++;
                 following = true;
                 if (goToBloodBar) {
                     uiObject = GameObject.Instantiate(uiObjectPrefab);
@@ -56,7 +58,7 @@ public class PickupController : MonoBehaviour
                 var toTarget = target - uiObject.transform.position;
                 var toTargetScaled = toTarget.normalized * uiObjSideVel;
                 uiObject.transform.position += (toTargetScaled + Vector3.up * uiObjUpVel) * Time.deltaTime;
-                if (toTarget.magnitude <= 20f) {
+                if (toTarget.magnitude <= 30f || toTarget.x > 10f) {
                     HandleCollect();
                 }
             } else {
@@ -68,6 +70,7 @@ public class PickupController : MonoBehaviour
     }
 
     void HandleCollect(){
+        amtInFlight--;
         PickupSfxManager.PickupFinished();
         var bloodAmountController = vampire.GetComponent<BloodAmountController>();
         if (bloodAmountController) {

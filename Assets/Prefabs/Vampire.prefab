@@ -4868,6 +4868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   youDied: {fileID: 0}
   deltaPerSecond: -0.05
+  isDead: 0
 --- !u!114 &1414631039
 MonoBehaviour:
   m_ObjectHideFlags: 0

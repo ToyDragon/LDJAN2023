@@ -136,6 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd63313b72bfe441a0057f3b0e106ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardObjLeft: {fileID: 4368911642448029054}
+  cardObjMiddle: {fileID: 4368911642219285804}
+  cardObjRight: {fileID: 4368911643279883111}
   cardMaterials:
   - {fileID: 2100000, guid: dc03d7b310076d4478f3567142a52f1f, type: 2}
   - {fileID: 2100000, guid: 16a089f3fab835b4ead05205fd23a9ee, type: 2}
@@ -223,14 +226,14 @@ PrefabInstance:
     - target: {fileID: 825969577154671484, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: b72b39d5d8651be44a903c1a333eac63, type: 2}
     - target: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Name
-      value: Upgrade Card
+      value: Upgrade Card Middle
       objectReference: {fileID: 0}
     - target: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4443725366956852192, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: disableAfterCreating
@@ -282,6 +285,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d5f563977c43147b635e7a54486011, type: 3}
+--- !u!1 &4368911642219285804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
+  m_PrefabInstance: {fileID: 2784112354645894846}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7552162574770194638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5651327824126848624, guid: c2d5f563977c43147b635e7a54486011, type: 3}
@@ -297,14 +305,14 @@ PrefabInstance:
     - target: {fileID: 825969577154671484, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: b72b39d5d8651be44a903c1a333eac63, type: 2}
     - target: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Name
-      value: Upgrade Card (2)
+      value: Upgrade Card Right
       objectReference: {fileID: 0}
     - target: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5651327824126848624, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_RootOrder
@@ -352,6 +360,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d5f563977c43147b635e7a54486011, type: 3}
+--- !u!1 &4368911643279883111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
+  m_PrefabInstance: {fileID: 2784112355699495157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7552162573683146373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5651327824126848624, guid: c2d5f563977c43147b635e7a54486011, type: 3}
@@ -367,14 +380,14 @@ PrefabInstance:
     - target: {fileID: 825969577154671484, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: b72b39d5d8651be44a903c1a333eac63, type: 2}
     - target: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_Name
-      value: Upgrade Card (1)
+      value: Upgrade Card Left
       objectReference: {fileID: 0}
     - target: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5651327824126848624, guid: c2d5f563977c43147b635e7a54486011, type: 3}
       propertyPath: m_RootOrder
@@ -422,6 +435,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d5f563977c43147b635e7a54486011, type: 3}
+--- !u!1 &4368911642448029054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1874159978873187218, guid: c2d5f563977c43147b635e7a54486011, type: 3}
+  m_PrefabInstance: {fileID: 2784112356497788652}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7552162574675943580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5651327824126848624, guid: c2d5f563977c43147b635e7a54486011, type: 3}
@@ -445,6 +463,10 @@ PrefabInstance:
     - target: {fileID: 6877951427003211077, guid: c5b386aa5abd50247b24589613a38bf3, type: 3}
       propertyPath: m_Name
       value: Spot Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043792925751325294, guid: c5b386aa5abd50247b24589613a38bf3, type: 3}
+      propertyPath: m_Volume
+      value: 0.383
       objectReference: {fileID: 0}
     - target: {fileID: 8524918024410298213, guid: c5b386aa5abd50247b24589613a38bf3, type: 3}
       propertyPath: m_RootOrder

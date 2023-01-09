@@ -31,7 +31,10 @@ public class ChasePlayerIfClose : MonoBehaviour
     }
     void Update()
     {
-        if(GameState.SuppressUpdates()) return;
+        if(GameState.SuppressUpdates()){
+            lastJumpTime += Time.deltaTime;
+            return;
+        }
         if (chasing) {
             transform.LookAt(player.transform.position);
         }

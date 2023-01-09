@@ -36,7 +36,7 @@ public class BossManager : MonoBehaviour
         }
 
         if (livingBosses == null && Time.time - lastBossSpawn > gapBetweenBosses) {
-            gapBetweenBosses *= acceleration;
+            //gapBetweenBosses *= acceleration;
             gapBetweenBosses = Mathf.Max(1, gapBetweenBosses);
             lastBossSpawn = Time.time;
 

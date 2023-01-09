@@ -28,7 +28,7 @@ public class BloodLightController : MonoBehaviour
             float missingBlood = 1f - BloodAmountController.instance.amount;
             offsetStrength = Mathf.Clamp01((missingBlood - .5f) * 2f);
         }
-        audioSource.volume = clipVolume * offsetStrength;
+        audioSource.volume = GameState.SuppressUpdates() ? clipVolume * offsetStrength * 0.1f : clipVolume * offsetStrength;
         flickerTime += offsetStrength * Time.deltaTime * 10f;
         light.intensity = 5000 + Mathf.Sin(flickerTime) * offsetStrength * 5000;
     }

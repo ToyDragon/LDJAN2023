@@ -62,6 +62,8 @@ public class BloodBeetController : MonoBehaviour
     }
 
     void HandleDeath(){
+        StatManager.numberOfBeetsKilled++;
+        if(difficulty == 3) StatManager.numberOfBossesKilled++;
         GameObject pickup = GameObject.Instantiate(pickupPrefab);
         pickup.transform.position = transform.position;
         var pickupControllers = pickup.GetComponentsInChildren<PickupController>();
@@ -72,7 +74,11 @@ public class BloodBeetController : MonoBehaviour
             if (difficulty == 2) {
                 pickupController.XP *= 100;
             }
+            if (difficulty == 3) {
+                pickupController.XP *= 500;
+            }
         }
+
         GameObject.Destroy(gameObject);
     }
 }

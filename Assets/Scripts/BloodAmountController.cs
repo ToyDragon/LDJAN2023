@@ -20,6 +20,11 @@ public class BloodAmountController : MonoBehaviour
         if(!isDead && amount == 0 && PickupController.amtInFlight == 0){
             isDead = true;
             youDied.SetActive(true);
+            GameState.dead = true;
+            Transform canvas = youDied.transform.parent;
+            for(int i = 0; i < canvas.childCount; i++){
+                if(canvas.GetChild(i).gameObject != youDied) canvas.GetChild(i).gameObject.SetActive(false);
+            }
         }
     }
     public float Add(float toAdd) {

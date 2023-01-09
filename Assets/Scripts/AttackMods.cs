@@ -18,6 +18,10 @@ public class AttackMods: MonoBehaviour
     public float damage = 1.0f;
     public float damageMulti = 1.0f;
 
+    public void Start(){
+        StatManager.attackMods = this;
+    }
+
     public void ApplyMod(Mod mod){
         Debug.Log("Applying mod - " + mod.ToString());
         switch(mod.modifies){
@@ -46,6 +50,7 @@ public class AttackMods: MonoBehaviour
                 break;
             case "attackSpeed":
                 attackSpeedMultiplier -= mod.floatValue;
+                if(attackSpeedMultiplier < .1f) attackSpeedMultiplier = .1f;
                 break;
             case "moveSpeed":
                 moveSpeedMultiplier += mod.floatValue;

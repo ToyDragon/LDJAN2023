@@ -19,10 +19,14 @@ public class BossManager : MonoBehaviour
         vampire = GameObject.Find("Vampire");
         audioSource = GetComponent<AudioSource>();
         instance = this;
+        lastBossSpawn = Time.time;
     }
     void Update()
     {
-        if(GameState.SuppressUpdates()) return;
+        if(GameState.SuppressUpdates()) {
+            lastBossSpawn += Time.deltaTime;
+            return;
+        }
         if (livingBosses != null) {
             foreach (var boss in livingBosses) {
                 if (boss) {

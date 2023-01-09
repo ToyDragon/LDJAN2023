@@ -8,6 +8,11 @@ public class PlayAgainController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) {
             UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+            GameState.dead = false;
+            GameState.paused = false;
+            GameState.selectingUpgrade = false;
+            StatManager.numberOfBossesKilled = 0;
+            StatManager.numberOfBeetsKilled = 0;
         }
     }
 }

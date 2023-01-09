@@ -8,6 +8,10 @@ public class DifficultyOverTimeManager : MonoBehaviour
 
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.F6)){
+            timeSinceStart += 100f;
+        }
         if(GameState.SuppressUpdates()) return;
         timeSinceStart += Time.deltaTime;
     }

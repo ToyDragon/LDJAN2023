@@ -107,16 +107,14 @@ public static class ModPool{
 
     public static Mod[] GetRandomUpgrades(int level){
         Mod[] availableMods = new Mod[]{
-
             new Mod("attackSpeed", 3, .1f, 0, "Faster Attack Speed"),
             new Mod("beetGrowth", 4, 0.25f, 0, "Faster Beet Growth"),
             new Mod("bloodDecay", 5, 0.1f, 0, "Slower Blood Decay"),
-            new Mod("moveSpeed", 6, .1f, 0, "Faster Movement"),
+            new Mod("moveSpeed", 6, .1f, 0, "Faster Movement"),//
             new Mod("pickupRange", 7, 2.5f, 0, "Farther Pickup Range"),
             new Mod("projRange", 9, 1f, 0, "Farther Arrow Range"),
             new Mod("attackDamage", 11, 0.5f, 0, "Added base damage"),
-            new Mod("attackDamageMulti", 10, 0.1f, "More multiplicitave damage")
-
+            new Mod("attackDamageMulti", 10, 0.1f, 0, "More multiplicitave damage")
         };
 
         Mod[] availableAfterFirstMajor = new Mod[]{

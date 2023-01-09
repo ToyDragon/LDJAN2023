@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
     private TMPro.TMP_Text cardTextMiddle;
     private TMPro.TMP_Text cardTextRight;
     public List<Material> cardMaterials = new List<Material>();
+    private int lastLevel = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,9 +35,12 @@ public class UIController : MonoBehaviour
 
     void OnLevelUp(){
         int level = XPLevelController.instance.level;
-        GameState.selectingUpgrade = true;
-        SetCardModsAndMaterials(level);
-        ShowCards(GameState.selectingUpgrade);
+        
+        if(!GameState.selectingUpgrade){
+            GameState.selectingUpgrade = true;
+            SetCardModsAndMaterials(level);
+            ShowCards(GameState.selectingUpgrade);
+        }
     }
 
     // Update is called once per frame
@@ -118,7 +122,13 @@ public class UIController : MonoBehaviour
     public void SelectCard(CardController card){
         AttackMods mods = vampire.GetComponent<AttackMods>();
         mods.ApplyMod(card.mod);
-        ShowCards(false);
-        GameState.selectingUpgrade = false;
+        lastLevel++;
+        if(lastLevel < XPLevelController.instance.level){
+            SetCardModsAndMaterials(XPLevelController.instance.level);
+        } else {
+            ShowCards(false);
+            GameState.selectingUpgrade = false;
+        }
+        
     }
 }

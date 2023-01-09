@@ -19,6 +19,10 @@ public class TimerController : MonoBehaviour
         int minutes = seconds/60;
         int leftover = seconds%60;
 
-        GetComponent<TMPro.TMP_Text>().text = minutes+":"+leftover;
+        string secondsS = leftover == 0 ? "00" :
+            leftover < 10 ? "0" + leftover :
+                "" + leftover;
+
+        GetComponent<TMPro.TMP_Text>().text = minutes+":"+secondsS;
     }
 }

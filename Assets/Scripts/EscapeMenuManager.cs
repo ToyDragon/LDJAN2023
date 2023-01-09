@@ -6,8 +6,8 @@ public class EscapeMenuManager : MonoBehaviour
 {
     public bool isOpen;
     private Rect windowRect;
-    private float masterVolume = 40f;
-    private float musicVolume = 50f;
+    private float masterVolume = 60f;
+    private float musicVolume = 30f;
     private AudioSource musicPlayerSource;
     private static bool initialized = false;
     void OnEnable() {

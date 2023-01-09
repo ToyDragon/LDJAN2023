@@ -15,6 +15,10 @@ public class DebugCheats : MonoBehaviour
             Debug.Log("CHEAT spawn boss");
             BossManager.instance.lastBossSpawn = Time.time - BossManager.instance.gapBetweenBosses;
         }
+        if (Input.GetKeyDown(KeyCode.F5)) {
+            Debug.Log("CHEAT kill yourself");
+            BloodAmountController.instance.Add(-BloodAmountController.instance.amount);
+        }
     }
     #endif
 }

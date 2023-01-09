@@ -517,6 +517,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc66593e4987d3140a67bf1749b96543, type: 3}
+--- !u!1 &4615455804979313459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8836655648557700927, guid: cc66593e4987d3140a67bf1749b96543, type: 3}
+  m_PrefabInstance: {fileID: 4615455804979313458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5333827649800244717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -698,7 +703,7 @@ PrefabInstance:
     - target: {fileID: 537121861, guid: 1c7c9da739e8eae44afd5916c60cafb7, type: 3}
       propertyPath: youDied
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4615455804979313459}
     - target: {fileID: 8994244561560460872, guid: 1c7c9da739e8eae44afd5916c60cafb7, type: 3}
       propertyPath: m_Name
       value: Vampire

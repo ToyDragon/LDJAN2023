@@ -38,6 +38,7 @@ public class UIController : MonoBehaviour
         
         if(!GameState.selectingUpgrade){
             GameState.selectingUpgrade = true;
+            hoveredCard = null;
             SetCardModsAndMaterials(level);
             ShowCards(GameState.selectingUpgrade);
         }
@@ -117,6 +118,9 @@ public class UIController : MonoBehaviour
         foreach (var obj in new []{cardObjLeft, cardObjMiddle, cardObjRight}) {
             obj.SetActive(value);
         }
+        cardControllerLeft.Highlight(false);
+        cardControllerMiddle.Highlight(false);
+        cardControllerRight.Highlight(false);
     }
 
     public void SelectCard(CardController card){

@@ -22,6 +22,7 @@ public class BossManager : MonoBehaviour
     }
     void Update()
     {
+        if(GameState.SuppressUpdates()) return;
         if (livingBosses != null) {
             foreach (var boss in livingBosses) {
                 if (boss) {

@@ -279,7 +279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
       propertyPath: tileSize
-      value: 50
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: maxRadiusTiles
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
       propertyPath: loadedTileRange
@@ -301,6 +305,98 @@ PrefabInstance:
       propertyPath: beetGroupPrefabs.Array.data[3]
       value: 
       objectReference: {fileID: 7671161657596138966, guid: 45b6943013c71b942aa7bbf4a65bdeb9, type: 3}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: difficultyByDistance.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[1].time
+      value: 0.8297061
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[1].value
+      value: 0.5325775
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[2].value
+      value: -0.009433746
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[0].inSlope
+      value: -0.4273518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[1].inSlope
+      value: -1.8730788
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[2].inSlope
+      value: -3.1827986
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: difficultyByDistance.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[0].outSlope
+      value: -0.4273518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[1].outSlope
+      value: -1.8730788
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[2].outSlope
+      value: -3.1827986
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: difficultyByDistance.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[0].outWeight
+      value: 0.08011542
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: difficultyByDistance.m_Curve.Array.data[1].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: densityByDistance.m_Curve.Array.data[2].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197012585424213464, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
+      propertyPath: difficultyByDistance.m_Curve.Array.data[1].outSlope
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7082414655865824467, guid: 85c4adcf263455d4e87c6f99f3a834b0, type: 3}
       propertyPath: m_Name
       value: DynamicTileManager

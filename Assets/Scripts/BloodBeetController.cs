@@ -10,6 +10,7 @@ public class BloodBeetController : MonoBehaviour
     public GameObject pickupPrefab;
     private float heightChangeForGrow = 0;
     private Transform modelOffset;
+    public int difficulty = 0;
     float timeToGrow;
     void OnEnable() {
         modelOffset = transform.Find("ModelOffset");
@@ -28,6 +29,24 @@ public class BloodBeetController : MonoBehaviour
             }
         }
     }
+    public void SetDifficulty(int difficulty) {
+        this.difficulty = difficulty;
+        UpdateDifficultyDisplay();
+    }
+    void UpdateDifficultyDisplay() {
+        var partsEasy = GetComponentsInChildren<ShowDifficultyEasy>();
+        var partsMedium = GetComponentsInChildren<ShowDifficultyMedium>();
+        var partsHard = GetComponentsInChildren<ShowDifficultyHard>();
+        foreach (var part in partsEasy) {
+            part.gameObject.SetActive(difficulty == 0);
+        }
+        foreach (var part in partsMedium) {
+            part.gameObject.SetActive(difficulty == 1);
+        }
+        foreach (var part in partsHard) {
+            part.gameObject.SetActive(difficulty == 2);
+        }
+    }
 
     void Update(){
         if(GameState.SuppressUpdates()) return;
@@ -44,6 +63,15 @@ public class BloodBeetController : MonoBehaviour
     void HandleDeath(){
         GameObject pickup = GameObject.Instantiate(pickupPrefab);
         pickup.transform.position = transform.position;
+        var pickupControllers = pickup.GetComponentsInChildren<PickupController>();
+        foreach (var pickupController in pickupControllers) {
+            if (difficulty == 1) {
+                pickupController.XP *= 10;
+            }
+            if (difficulty == 2) {
+                pickupController.XP *= 100;
+            }
+        }
         GameObject.Destroy(gameObject);
     }
 }

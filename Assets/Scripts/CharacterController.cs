@@ -24,6 +24,7 @@ public class CharacterController : MonoBehaviour
     public AudioClip attackSound;
     public BloodAmountController bloodAmountController;
     public Vector3 projectileSpread = new Vector3(0f, 2.5f, 0f);
+    private float originalYPos;
     void Start()
     {
         unityCharController = GetComponent<UnityEngine.CharacterController>();
@@ -34,6 +35,7 @@ public class CharacterController : MonoBehaviour
         legRoot = transform.Find("Torso").Find("Lower Body").gameObject;
         audioSource = GetComponent<AudioSource>();
         bloodAmountController = GetComponent<BloodAmountController>();
+        originalYPos = transform.position.y;
     }
 
     void Update(){
@@ -105,6 +107,7 @@ public class CharacterController : MonoBehaviour
 
         float moveSpeed = Mathf.Lerp(slowMoveSpeed * mods.moveSpeedMultiplier, fastMoveSpeed * mods.moveSpeedMultiplier, bloodAmountController.amount);
         unityCharController.Move(velocityThree * moveSpeed * Time.fixedDeltaTime);
+        transform.position = new Vector3(transform.position.x, originalYPos, transform.position.z);
         animator.SetFloat("speed", velocityThree.magnitude * moveSpeed);
     }
 

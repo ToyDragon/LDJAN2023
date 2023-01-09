@@ -1360,8 +1360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelOffset: {fileID: 452214692909328413}
-  activateDistance: 50
-  passiveDistance: 80
+  activateDistance: 200
+  passiveDistance: 300
   jumpTime: 0.3
   jumpDistance: 8
   jumpHeightCurve:

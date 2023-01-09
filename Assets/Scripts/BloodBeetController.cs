@@ -13,8 +13,10 @@ public class BloodBeetController : MonoBehaviour
     private Transform modelOffset;
     public int difficulty = 0;
     float timeToGrow;
+    private bool dead;
     void OnEnable() {
         modelOffset = transform.Find("ModelOffset");
+        dead = false;
     }
 
     public void HandleHit(HitData hitData){
@@ -62,6 +64,8 @@ public class BloodBeetController : MonoBehaviour
     }
 
     void HandleDeath(){
+        if (dead) { return; }
+        dead = true;
         StatManager.numberOfBeetsKilled++;
         if(difficulty == 3) StatManager.numberOfBossesKilled++;
         GameObject pickup = GameObject.Instantiate(pickupPrefab);

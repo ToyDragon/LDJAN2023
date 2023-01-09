@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class DifficultyOverTimeManager : MonoBehaviour
 {
-    static float timeSinceStart = 0f;
-
+    float timeSinceStart = 0f;
+    public static DifficultyOverTimeManager instance;
+    void OnEnable() {
+        instance = this;
+    }
     void Update()
     {
-
-        if(Input.GetKeyDown(KeyCode.F6)){
-            timeSinceStart += 100f;
-        }
         if(GameState.SuppressUpdates()) return;
         timeSinceStart += Time.deltaTime;
     }
 
     public static float GetDifficultyMultiplier(){
-        return Mathf.Pow(2,timeSinceStart/45f) - 1f;
+        return Mathf.Pow(2,instance.timeSinceStart/45f) - 1f;
     }
 }

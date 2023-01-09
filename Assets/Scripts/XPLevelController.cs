@@ -7,7 +7,7 @@ public class XPLevelController : MonoBehaviour
     public int level;
     public float xp;
     public float requiredXP;
-    public float levelXPMultiplier = 1.3f;
+    public float levelXPMultiplier = 1.001f;
     public static XPLevelController instance;
     public delegate void OnLevelUpDelegate();
     public OnLevelUpDelegate onLevelUp;
@@ -19,7 +19,7 @@ public class XPLevelController : MonoBehaviour
         while (xp > requiredXP) {
             level++;
             xp -= requiredXP;
-            levelXPMultiplier *= levelXPMultiplier;
+            requiredXP *= levelXPMultiplier;
             if (onLevelUp != null) {
                 onLevelUp();
             }

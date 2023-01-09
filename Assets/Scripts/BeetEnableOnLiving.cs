@@ -20,6 +20,7 @@ public class BeetEnableOnLiving : MonoBehaviour
     void Update()
     {
         if (!shown && beetController.state == BeetState.ALIVE) {
+            beetController.health = DifficultyOverTimeManager.GetDifficultyMultiplier();
             foreach (var obj in objsToEnableOnLiving) {
                 obj.SetActive(true);
             }

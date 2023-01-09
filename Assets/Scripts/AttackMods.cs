@@ -8,13 +8,15 @@ public class AttackMods: MonoBehaviour
     public bool piercing = false;
     public int numberOfPierces = 0;
     public bool splashDamage = false;
-    public float splashDamageRadius = 5f;
+    public float splashDamageRadius = 2.5f;
     public float splashDamageModifier = 0.25f;
     public float attackCooldownFast = 0.25f;
     public float attackCooldownSlow = .5f;
     public float attackSpeedMultiplier = 1.0f;
     public float moveSpeedMultiplier = 1.0f;
     public float projectileRange = 2.5f;
+    public float damage = 1.0f;
+    public float damageMulti = 1.0f;
 
     public void ApplyMod(Mod mod){
         Debug.Log("Applying mod - " + mod.ToString());
@@ -27,16 +29,19 @@ public class AttackMods: MonoBehaviour
                 numberOfPierces += mod.intValue;
                 break;
             case "numPierce":
+                piercing = true;
                 numberOfPierces += mod.intValue;
                 break;
             case "splash":
                 splashDamage = true;
-                splashDamageRadius += mod.floatValue;
+                splashDamageRadius = 5f;
                 break;
             case "splashRadius":
+                splashDamage = true;
                 splashDamageRadius += mod.floatValue;
                 break;
             case "splashMod":
+                splashDamage = true;
                 splashDamageModifier += mod.floatValue;
                 break;
             case "attackSpeed":
@@ -58,6 +63,12 @@ public class AttackMods: MonoBehaviour
                 break;
             case "projRange":
                 projectileRange += mod.floatValue;
+                break;
+            case "attackDamage":
+                damage += mod.floatValue;
+                break;
+            case "attakDamageMulti":
+                damage += mod.floatValue;
                 break;
         }
     }
@@ -94,24 +105,36 @@ public static class ModPool{
         };
     }
 
-    public static Mod[] GetRandomUpgrades(){
+    public static Mod[] GetRandomUpgrades(int level){
         Mod[] availableMods = new Mod[]{
             new Mod("attackSpeed", 3, .1f, 0, "Faster Attack Speed"),
             new Mod("beetGrowth", 4, 0.25f, 0, "Faster Beet Growth"),
             new Mod("bloodDecay", 5, 0.1f, 0, "Slower Blood Decay"),
-            new Mod("moveSpeed", 6, .1f, 0, "Faster Movement"),
+            new Mod("moveSpeed", 6, .1f, 0, "Faster Movement"),//
             new Mod("pickupRange", 7, 2.5f, 0, "Farther Pickup Range"),
-            new Mod("numProj", 8, 0f, 1, "Extra Arrows", 3),
-            new Mod("projRange", 9, 1f, 0, "Farther Arrow Range")
+            new Mod("projRange", 9, 1f, 0, "Farther Arrow Range"),
+            new Mod("attackDamage", 11, 0.5f, 0, "Added base damage"),
+            new Mod("attackDamageMulti", 10, 0.1f, 0, "More multiplicitave damage")
         };
+
+        Mod[] availableAfterFirstMajor = new Mod[]{
+            new Mod("numProj", 8, 0f, 1, "Extra Arrows"),
+            new Mod("pierce", 12, 0f, 1, "Arrows pierce more enemies"),
+            new Mod("splashMod", 13, 0.25f, 0, "Explosions do more damage"),
+            new Mod("splashRadius", 14, 1f, 0, "Explosions are bigger")
+        };
+
+        List<Mod> mods = new List<Mod>();
+        mods.AddRange(availableMods);
+        if(level > 5) mods.AddRange(availableAfterFirstMajor);
         Mod[] toReturn = new Mod[3];
         List<int> chosen = new List<int>();
         for(int i = 0; i < 3; i++){
             Mod mod = null;
             while(mod == null){
-                int index = Random.Range(0,availableMods.Length);
+                int index = Random.Range(0,mods.Count);
                 if(!chosen.Contains(index)){
-                    mod = availableMods[index];
+                    mod = mods[index];
                     chosen.Add(index);
                     toReturn[i] = mod;
                 } 
@@ -122,7 +145,7 @@ public static class ModPool{
 
     public static Mod[] GetModsForLevel(int level){
         if(level == 5) return GetMajorUpgrades1();
-        else return GetRandomUpgrades();
+        else return GetRandomUpgrades(level);
     }
 
 }

@@ -4890,6 +4890,8 @@ MonoBehaviour:
   attackSpeedMultiplier: 1
   moveSpeedMultiplier: 1
   projectileRange: 2.5
+  damage: 1
+  damageMulti: 1
 --- !u!82 &7877510031851438152
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5000,8 +5002,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   xp: 0
-  requiredXP: 100
-  levelXPMultiplier: 1.3
+  requiredXP: 10
+  levelXPMultiplier: 1.1
 --- !u!114 &13307806121392740
 MonoBehaviour:
   m_ObjectHideFlags: 0

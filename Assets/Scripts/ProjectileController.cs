@@ -81,5 +81,6 @@ public class ProjectileController : MonoBehaviour
         splash = mods.splashDamage;
         splashRadius = mods.splashDamageRadius;
         splashDamageMultiplier = mods.splashDamageModifier;
+        despawnTime = mods.projectileRange;
     }
 }

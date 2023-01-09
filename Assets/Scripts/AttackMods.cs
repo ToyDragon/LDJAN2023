@@ -10,6 +10,11 @@ public class AttackMods: MonoBehaviour
     public bool splashDamage = false;
     public float splashDamageRadius = 5f;
     public float splashDamageModifier = 0.25f;
+    public float attackCooldownFast = 0.25f;
+    public float attackCooldownSlow = .5f;
+    public float attackSpeedMultiplier = 1.0f;
+    public float moveSpeedMultiplier = 1.0f;
+    public float projectileRange = 2.5f;
 
     public void ApplyMod(Mod mod){
         Debug.Log("Applying mod - " + mod.ToString());
@@ -33,6 +38,26 @@ public class AttackMods: MonoBehaviour
                 break;
             case "splashMod":
                 splashDamageModifier += mod.floatValue;
+                break;
+            case "attackSpeed":
+                attackSpeedMultiplier -= mod.floatValue;
+                break;
+            case "moveSpeed":
+                moveSpeedMultiplier += mod.floatValue;
+                break;
+            case "beetGrowth":
+                GlobalConstants.beetGrowthTime -= mod.floatValue;
+                if(GlobalConstants.beetGrowthTime < .25f) GlobalConstants.beetGrowthTime = .25f;
+                break;
+            case "bloodDecay":
+                GlobalConstants.bloodDecayModifier -= mod.floatValue;
+                if(GlobalConstants.bloodDecayModifier < .1f) GlobalConstants.bloodDecayModifier = .1f;
+                break;
+            case "pickupRange":
+                GlobalConstants.pickupRange += mod.floatValue;
+                break;
+            case "projRange":
+                projectileRange += mod.floatValue;
                 break;
         }
     }
@@ -65,9 +90,35 @@ public static class ModPool{
         };
     }
 
+    public static Mod[] GetRandomUpgrades(){
+        Mod[] availableMods = new Mod[]{
+            new Mod("attackSpeed", 3, .1f),
+            new Mod("beetGrowth", 4, 0.25f),
+            new Mod("bloodDecay", 5, 0.1f),
+            new Mod("moveSpeed", 6, .1f),
+            new Mod("pickupRange", 7, 2.5f),
+            new Mod("numProj", 8, 0f, 1),
+            new Mod("projRange", 9, 1f)
+        };
+        Mod[] toReturn = new Mod[3];
+        List<int> chosen = new List<int>();
+        for(int i = 0; i < 3; i++){
+            Mod mod = null;
+            while(mod == null){
+                int index = Random.Range(0,availableMods.Length);
+                if(!chosen.Contains(index)){
+                    mod = availableMods[index];
+                    chosen.Add(index);
+                    toReturn[i] = mod;
+                } 
+            }
+        }
+        return toReturn;
+    }
+
     public static Mod[] GetModsForLevel(int level){
-        if(level == 1) return GetMajorUpgrades1();
-        else return new Mod[]{};
+        if(level == 5) return GetMajorUpgrades1();
+        else return GetRandomUpgrades();
     }
 
 }

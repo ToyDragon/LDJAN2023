@@ -6,7 +6,7 @@ public class PickupController : MonoBehaviour
 {
     GameObject vampire;
     bool following = false;
-    float pickupRange = 5f;
+    //float pickupRange = 5f;
     float collectRange = 1f;
     float followSpeed = 25f;
     public float XP = 10f;
@@ -35,7 +35,7 @@ public class PickupController : MonoBehaviour
         float dist = Vector3.Distance(vampire.transform.position, transform.position);
         if(!following){
             if(GameState.SuppressUpdates()) return;
-            if(dist <= pickupRange) {
+            if(dist <= GlobalConstants.pickupRange) {
                 PickupSfxManager.PickupStarted();
                 following = true;
                 if (goToBloodBar) {

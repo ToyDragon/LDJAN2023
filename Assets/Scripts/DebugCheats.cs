@@ -11,6 +11,10 @@ public class DebugCheats : MonoBehaviour
             Debug.Log("CHEAT level up");
             XPLevelController.instance.AddXP(1 + XPLevelController.instance.requiredXP - XPLevelController.instance.xp);
         }
+        if (Input.GetKeyDown(KeyCode.F2)) {
+            Debug.Log("CHEAT spawn boss");
+            BossManager.instance.lastBossSpawn = Time.time - BossManager.instance.gapBetweenBosses;
+        }
     }
     #endif
 }

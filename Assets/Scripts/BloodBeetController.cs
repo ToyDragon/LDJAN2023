@@ -5,7 +5,7 @@ using UnityEngine;
 public class BloodBeetController : MonoBehaviour
 {
     public BeetState state = BeetState.IDLE;
-    int health = 3;
+    public int health = 3;
     float timeToGrow = 2.0f;
     float growthProgress = 0f;
     public GameObject pickupPrefab;

@@ -22,6 +22,7 @@ public class BossManager : MonoBehaviour
     }
     void Update()
     {
+        if(GameState.SuppressUpdates()) return;
         if (livingBosses != null) {
             foreach (var boss in livingBosses) {
                 if (boss) {
@@ -36,7 +37,7 @@ public class BossManager : MonoBehaviour
         }
 
         if (livingBosses == null && Time.time - lastBossSpawn > gapBetweenBosses) {
-            gapBetweenBosses *= acceleration;
+            //gapBetweenBosses *= acceleration;
             gapBetweenBosses = Mathf.Max(1, gapBetweenBosses);
             lastBossSpawn = Time.time;
 

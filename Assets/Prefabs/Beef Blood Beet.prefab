@@ -514,7 +514,7 @@ MonoBehaviour:
   state: 0
   health: 100
   pickupPrefab: {fileID: 3193246033815733695, guid: 9c57daded14e22247b419bb334bcbb77, type: 3}
-  difficulty: 0
+  difficulty: 3
 --- !u!143 &5121018542304312682
 CharacterController:
   m_ObjectHideFlags: 0

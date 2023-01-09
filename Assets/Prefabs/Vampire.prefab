@@ -4866,6 +4866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f25cb72c1c0d84bb4fa6f8cfa07247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  youDied: {fileID: 0}
   deltaPerSecond: -0.05
 --- !u!114 &1414631039
 MonoBehaviour:
@@ -5002,8 +5003,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   xp: 0
-  requiredXP: 10
-  levelXPMultiplier: 1.1
+  requiredXP: 15
+  levelXPMultiplier: 1.2
 --- !u!114 &13307806121392740
 MonoBehaviour:
   m_ObjectHideFlags: 0

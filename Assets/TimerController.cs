@@ -14,6 +14,7 @@ public class TimerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameState.SuppressUpdates()) return;
         timeSinceStart += Time.deltaTime;
         int seconds = (int)timeSinceStart;
         int minutes = seconds/60;

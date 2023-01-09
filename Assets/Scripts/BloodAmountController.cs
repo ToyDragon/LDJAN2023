@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BloodAmountController : MonoBehaviour
 {
+    public GameObject youDied;
     public static BloodAmountController instance;
     // 0 to 1
     public float amount { get; private set; }
@@ -14,7 +15,10 @@ public class BloodAmountController : MonoBehaviour
     }
     void FixedUpdate() {
         if(GameState.SuppressUpdates()) return;
-        amount = Mathf.Clamp01(amount + deltaPerSecond * GlobalConstants.bloodDecayModifier * Time.fixedDeltaTime);
+        amount = Mathf.Clamp01(amount + deltaPerSecond * (DifficultyOverTimeManager.GetDifficultyMultiplier() / 5f) * GlobalConstants.bloodDecayModifier * Time.fixedDeltaTime);
+        if(amount == 0){
+            youDied.SetActive(true);
+        }
     }
     public float Add(float toAdd) {
         float actualAdded = Mathf.Min(1f - amount, toAdd);

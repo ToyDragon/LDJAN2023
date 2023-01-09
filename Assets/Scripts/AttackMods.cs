@@ -67,8 +67,8 @@ public class AttackMods: MonoBehaviour
             case "attackDamage":
                 damage += mod.floatValue;
                 break;
-            case "attakDamageMulti":
-                damage += mod.floatValue;
+            case "attackDamageMulti":
+                damageMulti += mod.floatValue;
                 break;
         }
     }

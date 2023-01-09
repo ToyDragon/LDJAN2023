@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class HitData
 {
-    public int damage = 1;
+    public HitData(float damage){ this.damage = damage; }
+    public float damage = 1f;
 }

@@ -13,6 +13,7 @@ public class ProjectileController : MonoBehaviour
     public bool splash = false;
     public float splashRadius = 0f;
     public float splashDamageMultiplier = 0f;
+    public float damage = 1f;
     public GameObject explosionPrefab;
     private List<BloodBeetController> beetsPierced = new List<BloodBeetController>();
     private bool destroying = false;
@@ -43,14 +44,30 @@ public class ProjectileController : MonoBehaviour
             if(pierce){
                 if(beetsPierced.Contains(beet)) return;
                 //Debug.Log("projectile is piercing, and hasn't hit this beet yet");
-                beet.HandleHit(new HitData());
+                beet.HandleHit(new HitData(damage));
+                if(splash && numPierced == 0){
+                    GameObject explosion = GameObject.Instantiate(explosionPrefab);
+                    explosion.GetComponent<ExplosionHandler>().maxSize = splashRadius;
+                    explosion.transform.position = transform.position;
+                    Collider[] explosionHits = Physics.OverlapSphere(transform.position, splashRadius);
+                    List<BloodBeetController> hitByExplosion = new List<BloodBeetController>();
+                    foreach(var hit in explosionHits){
+                        BloodBeetController beetHit = hit.GetComponent<BloodBeetController>();
+                        if(beetHit != null && !hitByExplosion.Contains(beetHit)){
+                            hitByExplosion.Add(beetHit);
+                            //Debug.Log("hit a beet with explosion!");
+                            beetHit.HandleHit(new HitData(damage*splashDamageMultiplier));
+                        }
+                    }
+                }
                 beetsPierced.Add(beet);
                 numPierced++;
                 if(numPierced >= maxPierces){
                     //Debug.Log("max pierces reached, destroying");
                     destroying = true;
                     GameObject.Destroy(gameObject);
-                } 
+                }
+ 
             } else {
                 if(splash){
                     //Debug.Log("Doing splash damage for projectile " + gameObject.name);
@@ -64,11 +81,11 @@ public class ProjectileController : MonoBehaviour
                         if(beetHit != null && !hitByExplosion.Contains(beetHit)){
                             hitByExplosion.Add(beetHit);
                             //Debug.Log("hit a beet with explosion!");
-                            beetHit.HandleHit(new HitData());
+                            beetHit.HandleHit(new HitData(damage*splashDamageMultiplier));
                         }
                     }
                 }
-                beet.HandleHit(new HitData());
+                beet.HandleHit(new HitData(damage));
                 GameObject.Destroy(gameObject);
                 destroying = true;
             }
@@ -82,5 +99,6 @@ public class ProjectileController : MonoBehaviour
         splashRadius = mods.splashDamageRadius;
         splashDamageMultiplier = mods.splashDamageModifier;
         despawnTime = mods.projectileRange;
+        damage = mods.damage * mods.damageMulti;
     }
 }

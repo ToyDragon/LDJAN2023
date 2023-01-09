@@ -6,7 +6,7 @@ public class PickupSfxManager : MonoBehaviour
 {
     public static PickupSfxManager instance;
     public int maxQueueSize = 3;
-    public float soundDelay = .15f;
+    public float soundDelay = 1f;
     private AudioSource audioSource;
 
     public AudioClip pickupSound;

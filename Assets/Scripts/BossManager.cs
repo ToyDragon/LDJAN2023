@@ -47,7 +47,7 @@ public class BossManager : MonoBehaviour
             newBoss.transform.position = vampire.transform.position + vampire.transform.forward * 30f;
             livingBosses = newBoss.GetComponentsInChildren<BloodBeetController>();
             foreach (var beetController in livingBosses) {
-                beetController.HandleHit(new HitData() {damage = 0}); // trigger growth
+                beetController.HandleHit(new HitData(0)); // trigger growth
             }
             newBoss.transform.LookAt(vampire.transform.position);
             audioSource.Play();
